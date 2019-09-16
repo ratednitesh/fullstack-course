@@ -1,0 +1,83 @@
+[{
+  "topic": "Method overloading:",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.",
+    "type": "para"
+  }, {
+    "content": " Different ways to overload the method:",
+    "type": "para"
+  }, {
+    "content": "By changing the no. of arguments",
+    "type": "bullet"
+  }, {
+    "content": "By changing the datatype",
+    "type": "bullet"
+  }, {
+    "content": "By changing the order of arguments",
+    "type": "bullet"
+  }, {
+    "content": "Method overloading is not possible by changing the return type of the method only because of ambiguity.",
+    "type": "bold-para"
+  }, {
+    "content": "You can have any number of main methods in a class by method overloading. But JVM calls main() method which receives string array as arguments only.",
+    "type": "para"
+  }, {
+    "content": "method overloading and type promotion",
+    "type": "bold-para"
+  }, {
+    "content": "byte-> short -> int--char -> int--int -> long,double,float--long -> float, double--float-> double----class Calculator{--\tint add(int a, long b){--\t return (int)(a+b); //type casting--\t}--\t\tpublic static void main(String[] args){  --\t\tCalculator c= new Calculator();--\t\tSystem.out.println(c.add(11,11));-- // second value will be promoted to long as no add(int,int) method available--\t}--}",
+    "type": "code"
+  }, {
+    "content": "If above program contains int add(int, int) method, type promotion will not be done.",
+    "type": "para"
+  }, {
+    "content": "//case of ambiguity - C.T.Error--class OverloadingCalculation3{  --  void sum(int a,long b){System.out.println(\"a method invoked\");}  --  void sum(long a,int b){System.out.println(\"b method invoked\");}  --  --  public static void main(String args[]){  --  OverloadingCalculation3 obj=new OverloadingCalculation3();  --  obj.sum(20,20);//now ambiguity  --  }  --}",
+    "type": "code"
+  }, {
+    "content": "One type is not de-promoted implicitly for example double cannot be depromoted to any type implicitly.",
+    "type": "bullet"
+  }, {
+    "content": "Does Java support Operator Overloading?",
+    "type": "bold-para"
+  }, {
+    "content": "Unlike C++, Java doesn’t allow user defined overloaded operators. Internally Java overloads operators, for example + is overloaded for concatenation.",
+    "type": "para"
+  }, {
+    "content": "Why do we need Method Overloading?",
+    "type": "bold-para"
+  }, {
+    "content": "Static Polymorphism- If we need to do same kind of the operation with different ways i.e. for different inputs. In the example described below, we are doing the addition operation for different inputs. It is hard to find many different meaningful names for single action.",
+    "type": "para"
+  }, {
+    "content": "Method overloading and null error in Java",
+    "type": "bold-para-head"
+  }, {
+    "content": "public class Test--{--    // Overloaded methods--    public void fun(Integer i)--    {--        System.out.println(\"fun(Integer ) \");--    }--    public void fun(String name)--    {--        System.out.println(\"fun(String ) \");--    }--    // Driver code --    public static void main(String [] args)--    {--        Test mv = new Test(); --        // This line causes error--        mv.fun(null);--    }--}",
+    "type": "code"
+  }, {
+    "content": "The reason why we get compile time error in the above scenario is, here the method arguments Integer and String both are not primitive data types in Java. That means they accept null values. When we pass a null value to the method1 the compiler gets confused which method it has to select, as both are accepting the null.",
+    "type": "bold-para"
+  }, {
+    "content": "This compile time error wouldn’t happen unless we intentionally pass null value. i.e.",
+    "type": "para"
+  }, {
+    "content": "Test mv = new Test(); --Integer arg = null;----// No compiler error--mv.fun(arg);",
+    "type": "code"
+  }, {
+    "content": "class B4 {--\tpublic void  two(Object a) {--\t\tSystem.out.println(\"Two () of Class B4\");--\t}--}----public class A extends B4{----\tpublic void two (Integer a) {--\t\tSystem.out.println(\"Two () of Class A\");--\t}--\tpublic static void  main(String args[]) {--\t\tB4 b = new B4();--\t\tB4 a = new A();--\t\tb.two(1); //Two () of Class B4--\t\ta.two(2); //Two () of Class B4--\t\t((A)a).two(2); //Two () of Class A--\t}--}",
+    "type": "code"
+  }, {
+    "content": "Yes, because both objects created in the main method are given the highest parent data-type Base, they will both print \"Object\". Because the Derived instance has an \"is a\" relationship with the class Base, this object can be casted to Derived to invoke the method that prints \"Int\"",
+    "type": "bold-para"
+  }, {
+    "content": "A complete example:",
+    "type": "bold-para-head"
+  }, {
+    "content": "class B{--\tvoid two(Object b) {--\t\tSystem.out.println(\"Parent Object\");--\t}--\tvoid three(String b) {--\t\tSystem.out.println(\"Parent String\");--\t}--}--public class A extends B{--\tvoid two(String b) {--\t\tSystem.out.println(\"Child String\");--\t}--\tvoid three(Object b) {--\t\tSystem.out.println(\"Child Object\");--\t}--\tvoid one(String b) {--\t\tSystem.out.println(\"String class\");--\t}--\tvoid one(Object b) {--\t\tSystem.out.println(\"Object class\");--\t}--\tpublic static void main(String args[]) {--\t\tB b= new B();--\t\tB c= new A();--\t\tA a =new A();--\t\t--\t\ta.one(\"String\");  \t//String class--\t\ta.one(null);    \t//String class----\t\ta.two(\"String\");  \t//Child String--\t\ta.two(null);\t\t//Child String--\t\t--\t\ta.three(\"String\");\t//Parent String--\t\ta.three(null);\t//Parent String--\t\t--\t\t--\t\tb.two(\"String\");\t//Parent Object--\t\tb.two(null);\t\t//Parent Object--\t\t--\t\tb.three(\"String\");\t//Parent String--\t\tb.three(null);\t//Parent String--\t\t--\t\tc.two(\"String\");\t//Parent Object--\t\tc.two(null);\t\t//Parent Object--\t\t--\t\tc.three(\"String\");\t//Parent String--\t\tc.three(null);\t//Parent String--\t}--}",
+    "type": "code"
+  }, {
+    "content": "Overloading a final method is perfectly legitimate.",
+    "type": "bold-para"
+  }]
+}]

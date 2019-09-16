@@ -1,0 +1,110 @@
+[{
+  "topic": "Garbage Collection",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "•\tObjects are allocated in the Heap memory of Java.",
+    "type": "para"
+  }, {
+    "content": " •\tStatic members, Class definitions are stored in method area (Permgen/Metaspace).",
+    "type": "para"
+  }, {
+    "content": " •\tGarbage Collection is carried out by a daemon thread called Garbage Collector. ",
+    "type": "para"
+  }, {
+    "content": "•\tWe can’t force gc to happen (System.gc( )).",
+    "type": "para"
+  }, {
+    "content": " •\tWhen new allocations can’t happen due to a full heap, we get java.lang.OutOfMemoryError and that is memory leak or object leak.",
+    "type": "para"
+  }, {
+    "content": "Steps for Garbage Collection:",
+    "type": "bold-para-head"
+  }, {
+    "content": "Mark",
+    "type": "bold-para"
+  }, {
+    "content": "Starts from the root node of the application(main), walks the object graph and marks the object that are reachable as live.",
+    "type": "para"
+  }, {
+    "content": "Sweep/Delete ",
+    "type": "bold-para"
+  }, {
+    "content": "Once, it gets the unreachable object during walking the object graph, it starts deleting it and freeing up heap space.",
+    "type": "para"
+  }, {
+    "content": "Compacting ",
+    "type": "bold-para"
+  }, {
+    "content": "Compacts the memory by moving around the objects and making the allocation contiguous and fragmented.",
+    "type": "para"
+  }, {
+    "content": "Generational Collectors ",
+    "type": "bold-para-head"
+  }, {
+    "content": "./assets/java/images/image005.png",
+    "type": "image"
+  }, {
+    "content": "Yonug Generation",
+    "type": "bold-para"
+  }, {
+    "content": "The place where the new objects are created. ",
+    "type": "para"
+  }, {
+    "content": "Eden Space ",
+    "type": "bold-para"
+  }, {
+    "content": "It’s the place where new things are created. Whenever we call “new”  then that object is created here. If this space gets full, a minor GC runs and move the objects from Eden to Survivor space and removing the unreferenced objects.",
+    "type": "para"
+  }, {
+    "content": "Survivor Space From",
+    "type": "bold-para"
+  }, {
+    "content": "Suppose the Eden space gets full, then a small Garbage collection kicks in and delete all the unreferenced objects. Now, the objects which are not deleted by garbage collection move to survivor space.",
+    "type": "para"
+  }, {
+    "content": "Minor Garbage collections – Runs in the Young Generation.",
+    "type": "bold-para"
+  }, {
+    "content": "Major Garbage Collection – Runs across the heap. It does the mark, sweep and compacting. It can cause a pause in application for small time.",
+    "type": "bold-para"
+  }, {
+    "content": "Old Generation ",
+    "type": "bold-para"
+  }, {
+    "content": "It holds objects that survives for a long time. E.g – Cache memory object.",
+    "type": "para"
+  }, {
+    "content": "The objects move from Eden space to Survivor space after a minor GC runs. Then they move to Survivor space 2 after another minor GC. This process continues from one Survivor space to another until a threshold value is reached  ( -XX:MaxTenuringThreshold ). After the threshold reaches the value, the objects are moved to the Old Gen.",
+    "type": "para"
+  }, {
+    "content": "Once the Old Gen gets filled, the Major Garbage Collection runs from Young gen to old gen doing Mark and sweep and Compacting .It’s a time consuming operation which puts application to halt.",
+    "type": "para"
+  }, {
+    "content": "Performance ",
+    "type": "bold-para-head"
+  }, {
+    "content": "./assets/java/images/image006.png",
+    "type": "image"
+  }, {
+    "content": "./assets/java/images/image007.png",
+    "type": "image"
+  }, {
+    "content": "./assets/java/images/image008.png",
+    "type": "image"
+  }, {
+    "content": "./assets/java/images/image009.png",
+    "type": "image"
+  }, {
+    "content": "./assets/java/images/image010.png",
+    "type": "image"
+  }, {
+    "content": "./assets/java/images/image011.png",
+    "type": "image"
+  }, {
+    "content": "./assets/java/images/image012.png",
+    "type": "image"
+  }, {
+    "content": "./assets/java/images/image013.png",
+    "type": "image"
+  }]
+}]

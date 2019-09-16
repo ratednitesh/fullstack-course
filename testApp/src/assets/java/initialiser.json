@@ -1,0 +1,26 @@
+[{
+  "topic": "Instance Initializer block",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "Instance Initializer block is used to initialize the instance data member. It run each time when object of the class is created.",
+    "type": "bold-para"
+  }, {
+    "content": "The java compiler copies the instance initializer block in the constructor after the first statement super(). ",
+    "type": "para"
+  }, {
+    "content": "So, The instance initializer block is created when instance of the class is created.",
+    "type": "para"
+  }, {
+    "content": "The instance initializer block is invoked after the parent class constructor is invoked (i.e. after super() constructor call).",
+    "type": "para"
+  }, {
+    "content": "The instance initializer block comes in the order in which they appear.",
+    "type": "para"
+  }, {
+    "content": "Example:",
+    "type": "bold-para"
+  }, {
+    "content": "class A1{--A1(){--\tSystem.out.println(\"Parent constructor\");--}--}--class B1 extends A1{--\tB1(){--\t\tSystem.out.println(\"Child constructor without parameter\");--\t}--\tB1(char a){--\t\tSystem.out.println(\"Child constructor with parameter\"+ a);--\t}--\t--\t{--\t\tSystem.out.println(\"Instance initializer block\");--\t}--} --class Test{--\tpublic static void main(String args[]){--\t\tB1 b1= new B1();--\t\tB1 b2= new B1('A');--\t}--}----ouptut: --Parent constructor--Instance initializer block--Child constructor without parameter--Parent constructor--Instance initializer block--Child constructor with parameter",
+    "type": "code"
+  }]
+}]

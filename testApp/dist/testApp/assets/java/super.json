@@ -1,0 +1,92 @@
+[{
+  "topic": "Super Keyword in Java",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "The super keyword in java is a reference variable that is used to refer parent class objects.  The keyword “super” came into the picture with the concept of Inheritance. It is majorly used in the following contexts:",
+    "type": "para"
+  }, {
+    "content": "1. Use of super with variables: ",
+    "type": "bold-para-head"
+  }, {
+    "content": "This scenario occurs when a derived class and base class has same data members. In that case there is a possibility of ambiguity for the JVM. We can understand it more clearly using this code snippet:",
+    "type": "para"
+  }, {
+    "content": "/* Base class vehicle */--class Vehicle--{--    int maxSpeed = 120;--}-- --/* sub class Car extending vehicle */--class Car extends Vehicle--{--    int maxSpeed = 180;-- --    void display()--    {--        /* print maxSpeed of base class (vehicle) */--        System.out.println(\"Maximum Speed: \" + super.maxSpeed);--    }--}-- --/* Driver program to test */--class Test--{--    public static void main(String[] args)--    {--        Car small = new Car();--        small.display();--    }--}--Output:--Maximum Speed: 120",
+    "type": "code"
+  }, {
+    "content": "In the above example, both base class and subclass have a member maxSpeed. We could access maxSpeed of base class in sublcass using super keyword.",
+    "type": "para"
+  }, {
+    "content": "2. Use of super with methods:",
+    "type": "bold-para-head"
+  }, {
+    "content": "This is used when we want to call parent class method. So whenever a parent and child class have same named methods then to resolve ambiguity we use super keyword. This code snippet helps to understand the said usage of super keyword.",
+    "type": "para"
+  }, {
+    "content": "/* Base class Person */--class Person--{--    void message()--    {--        System.out.println(\"This is person class\");--    }--}-- --/* Subclass Student */--class Student extends Person--{--    void message()--    {--        System.out.println(\"This is student class\");--    }-- --    // Note that display() is only in Student class--    void display()--    {--        // will invoke or call current class message() method--        message();-- --        // will invoke or call parent class message() method--        super.message();--    }--}-- --/* Driver program to test */--class Test--{--    public static void main(String args[])--    {--        Student s = new Student();-- --        // calling display() of Student--        s.display();--    }--}------Output:--This is student class--This is person class",
+    "type": "code"
+  }, {
+    "content": "In the above example, we have seen that if we only call method message() then, the current class message() is invoked but with the use of super keyword, message() of superclass could also be invoked. ",
+    "type": "para"
+  }, {
+    "content": "3. Use of super with constructors: ",
+    "type": "bold-para-head"
+  }, {
+    "content": "super keyword can also be used to access the parent class constructor. One more important thing is that, ‘’super’ can call both parametric as well as non parametric constructors depending upon the situation. Following is the code snippet to explain the above concept:",
+    "type": "para"
+  }, {
+    "content": "/* superclass Person */--class Person--{--    Person()--    {--        System.out.println(\"Person class Constructor\");--    }--}-- --/* subclass Student extending the Person class */--class Student extends Person--{--    Student()--    {--        // invoke or call parent class constructor--        super();-- --        System.out.println(\"Student class Constructor\");--    }--}-- --/* Driver program to test*/--class Test--{--    public static void main(String[] args)--    {--        Student s = new Student();--    }--}--Output:--Person class Constructor--Student class Constructor",
+    "type": "code"
+  }, {
+    "content": "In the above example we have called the superclass constructor using keyword ‘super’ via subclass constructor.",
+    "type": "para"
+  }, {
+    "content": "Other Important points:",
+    "type": "bold-para-head"
+  }, {
+    "content": "Call to super() must be first statement in Derived(Student) Class constructor. ",
+    "type": "bullet"
+  }, {
+    "content": "If a constructor does not explicitly invoke a superclass constructor, the Java compiler automatically inserts a call to the no-argument constructor of the superclass. If the superclass does not have a no-argument constructor, you will get a compile-time error. Object class does have such a constructor, so if Object is the only superclass, there is no problem. ",
+    "type": "bullet"
+  }, {
+    "content": "If a subclass constructor invokes a constructor of its superclass, either explicitly or implicitly, you might think that a whole chain of constructors called, all the way back to the constructor of Object. This, in fact, is the case. It is called constructor chaining..",
+    "type": "bullet"
+  }, {
+    "content": "When and where to call super() ?",
+    "type": "bold-para"
+  }, {
+    "content": "Just as this() must be the first element in a constructor that calls another constructor in the same class, super() must be the first element in a constructor that calls a constructor in its superclass. If you break this rule the compiler will report an error. The compiler will also report an error if it detects a super() call in a method; only ever call super() in a constructor.",
+    "type": "para"
+  }, {
+    "content": "super() and the no-argument constructor",
+    "type": "bold-para"
+  }, {
+    "content": "If super() is not specified in a subclass constructor, and if the superclass doesn't declare a no-argument constructor, then the compiler will report an error. This is because the subclass constructor must call a no-argument superclass constructor when super() isn't present.",
+    "type": "para"
+  }, {
+    "content": "/**************/--Class A{--\tA(int x){}--}--Class B extends A{--\tB(){--\t}--}--//C.T.Error----/**************/----Class A{--\tA(int x){}--}--Class B{--\tB(){--\t\tsuper();--\t}--}--//C.T.Error----/**************/--Class A{--\tA(){}--\tA(int x){}--}--Class B{--\tB(){--\t}--}--//Works Fine!",
+    "type": "code"
+  }, {
+    "content": "Execution Sequence: ",
+    "type": "bold-para"
+  }, {
+    "content": "class A{--\tA(){--\tSystem.out.println(“parent no arg const”);--}--}--public class B extends A{--\tB(){--\tSystem.out.println(“derived no arg const”);--}--B(int x){--\tthis();--\tSystem.out.println(“derived  arg const”);--}--public static void main(String[] args) {--\t\t--\t\tB b= new B(5);----\t\t{--\t\tSystem.out.println(\"instance initializer\");--\t}--}--Output:--parent no arg const--instance initializer--derived no arg const--derived  arg const",
+    "type": "code"
+  }, {
+    "content": "Accessing Grandparent’s member in Java using super",
+    "type": "bold-para-head"
+  }, {
+    "content": " super.super.Print();  // C.T. Error",
+    "type": "code"
+  }, {
+    "content": "In Java, we can access grandparent’s members only through the parent class.",
+    "type": "bold-para"
+  }, {
+    "content": "For example, the following program compiles and runs fine:",
+    "type": "para"
+  }, {
+    "content": "// filename Main.java--class Grandparent {--    public void Print() {--        System.out.println(\"Grandparent's Print()\");--    }--}--  --class Parent extends Grandparent {--    public void Print() {--        super.Print();--        System.out.println(\"Parent's Print()\");--    }--}--  --class Child extends Parent {--    public void Print() {--        super.Print();--        System.out.println(\"Child's Print()\");--    }--}--  --public class Main {--    public static void main(String[] args) {--        Child c = new Child();--        c.Print();--    }--}",
+    "type": "code"
+  }]
+}]
