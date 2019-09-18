@@ -1,0 +1,32 @@
+<div class="container px-5 pb-5 mt-2 pt-5"  >
+  <div *ngFor="let mainContent of mainContentArray">
+    <h1 class="display-4 text-center">{{mainContent.topic}}</h1>
+    <h3 class="display-4" style="font-size:40px">{{mainContent.subHeading}}</h3>
+    <div *ngFor="let par of mainContent.paragraph">
+      <div *ngIf="par.type=='para'">
+        <p class="lead">{{par.content}}</p>
+      </div>
+      <div *ngIf="par.type=='bold-para'">
+        <p class="lead pt-1"><strong>{{par.content}}</strong></p>
+      </div>
+      <div *ngIf="par.type=='bullet'">
+        <li class="px-3 lead"><strong>{{par.content}}</strong></li>
+      </div>
+      <div class="  p-3 mt-4 mx-4" *ngIf="par.type=='code'"
+        style="background-color: rgb(224, 222, 213); border-radius: 25px ">
+        <div *ngFor="let c of par.content|codeformat">
+          <p class="lead pl-4"
+            style=' font-family: "Courier New", Courier, monospace;font-size: 98%; white-space: pre'>
+            {{c}}
+          </p>
+        </div>
+      </div>
+      <div *ngIf="par.type=='image'" class="py-3" style=" text-align: center">
+        <img src='{{par.content}}' alt="" srcset="" style=" max-width: 80%; max-height: 100%">
+      </div>
+      <div *ngIf="par.type=='bold-para-head'">
+        <p class="lead mt-4"><strong style="font-weight:500;font-size: 115%">{{par.content}}</strong></p>
+      </div>
+    </div>
+  </div>
+</div>

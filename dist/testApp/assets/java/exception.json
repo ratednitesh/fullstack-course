@@ -1,0 +1,233 @@
+[{
+  "topic": "Exception Handling in Java",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "Exception Handling is a mechanism to handle runtime errors such as ClassNotFound, IO, SQL, Remote etc.",
+    "type": "para"
+  }, {
+    "content": "./assets/java/images/image023.png",
+    "type": "image"
+  }, {
+    "content": "Checked Exception",
+    "type": "bold-para"
+  }, {
+    "content": "The classes that extend Throwable class except RuntimeException and Error are known as checked exceptions e.g.IOException, SQLException etc. Checked exceptions are checked at compile-time.",
+    "type": "para"
+  }, {
+    "content": "Unchecked Exception",
+    "type": "bold-para"
+  }, {
+    "content": "The classes that extend RuntimeException are known as unchecked exceptions e.g. ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException etc. Unchecked exceptions are not checked at compile-time rather they are checked at runtime.",
+    "type": "para"
+  }, {
+    "content": "Error",
+    "type": "bold-para"
+  }, {
+    "content": "Error is irrecoverable e.g. OutOfMemoryError, VirtualMachineError, AssertionError etc.",
+    "type": "para"
+  }, {
+    "content": "How JVM handle an Exception?",
+    "type": "bold-para-head"
+  }, {
+    "content": "Default Exception Handling ",
+    "type": "bold-para"
+  }, {
+    "content": "Whenever inside a method, if an exception has occurred, the method creates an Object known as Exception Object and hands it off to the run-time system(JVM).",
+    "type": "para"
+  }, {
+    "content": "The exception object contains name and description of the exception, and current state of the program where exception has occurred. Creating the Exception Object and handling it to the run-time system is called throwing an Exception.",
+    "type": "para"
+  }, {
+    "content": "There might be the list of the methods that had been called to get to the method where exception was occurred. This ordered list of the methods is called Call Stack.Now the following procedure will happen.",
+    "type": "para"
+  }, {
+    "content": "The run-time system searches the call stack to find the method that contains block of code that can handle the occurred exception. The block of the code is called Exception handler.",
+    "type": "bullet"
+  }, {
+    "content": "The run-time system starts searching from the method in which exception occurred, proceeds through call stack in the reverse order in which methods were called. ",
+    "type": "bullet"
+  }, {
+    "content": "If it finds  appropriate handler then it passes the occurred exception to it. Appropriate handler means the type of the exception object thrown matches the type of the exception object it can handle. ",
+    "type": "bullet"
+  }, {
+    "content": "If run-time system searches all the methods on call stack and couldn’t have found the appropriate handler then run-time system handover the Exception Object to default exception handler , which is part of run-time system. This handler prints the exception information in the following format and terminates program abnormally.",
+    "type": "bullet"
+  }, {
+    "content": "Customized Exception Handling ",
+    "type": "bold-para"
+  }, {
+    "content": "Java exception handling is managed via five keywords: try, catch, throw, throws, and finally. ",
+    "type": "para"
+  }, {
+    "content": "Briefly, here is how they work. Program statements that you think can raise exceptions are contained within a try block. If an exception occurs within the try block, it is thrown. Your code can catch this exception (using catch block) and handle it in some rational manner. System-generated exceptions are automatically thrown by the Java run-time system. ",
+    "type": "para"
+  }, {
+    "content": "To manually throw an exception, use the keyword throw. Any exception that is thrown out of a method must be specified as such by a throws clause. Any code that absolutely must be executed after a try block completes is put in a finally block.",
+    "type": "para"
+  }, {
+    "content": "Common scenarios where exceptions may occur",
+    "type": "bold-para-head"
+  }, {
+    "content": "int a=50/0;//ArithmeticException  --String s=null;  --System.out.println(s.length());//NullPointerException  --String s1=\"abc\";  --int i=Integer.parseInt(s1);//NumberFormatException  --int a[]=new int[5];  --a[10]=50; //ArrayIndexOutOfBoundsException  ",
+    "type": "code"
+  }, {
+    "content": " Java Exception Handling Keywords",
+    "type": "bold-para-head"
+  }, {
+    "content": "try ",
+    "type": "bullet"
+  }, {
+    "content": "catch",
+    "type": "bullet"
+  }, {
+    "content": "finally",
+    "type": "bullet"
+  }, {
+    "content": "throw ",
+    "type": "bullet"
+  }, {
+    "content": "throws",
+    "type": "bullet"
+  }, {
+    "content": "The JVM firstly checks whether the exception is handled or not. If exception is not handled, JVM provides a default exception handler that performs the following tasks:",
+    "type": "para"
+  }, {
+    "content": "o\tPrints out exception description.",
+    "type": "para"
+  }, {
+    "content": " o\tPrints the stack trace (Hierarchy of methods where the exception occurred). ",
+    "type": "para"
+  }, {
+    "content": "o\tCauses the program to terminate.",
+    "type": "para"
+  }, {
+    "content": "But if exception is handled by the application programmer, normal flow of the application is maintained i.e. rest of the code is executed.",
+    "type": "para"
+  }, {
+    "content": "At a time only one Exception is occurred and at a time only one catch block is executed.",
+    "type": "bold-para"
+  }, {
+    "content": "All catch blocks must be ordered from most specific to most general i.e. catch for ArithmeticException must come before catch for Exception.",
+    "type": "bold-para"
+  }, {
+    "content": "A nested try-catch block may also exist.",
+    "type": "para"
+  }, {
+    "content": "Flow control in try catch finally in Java",
+    "type": "bold-para-head"
+  }, {
+    "content": "Exception occurred in try-block is not handled in catch block:",
+    "type": "bold-para"
+  }, {
+    "content": "If a statement in try block raised an exception, then the rest of the try block doesn’t execute and control passes to the corresponding catch block. After executing catch block, the control will be transferred to finally block(if present) and then rest program will be executed.",
+    "type": "para"
+  }, {
+    "content": "In this case, default handling mechanism is followed. If finally block is present, it will be executed followed by default handling mechanism.",
+    "type": "para"
+  }, {
+    "content": "Exception doesn’t occur in try-block: ",
+    "type": "bold-para"
+  }, {
+    "content": "In this case catch block never runs as they are only meant to be run when an exception occurs. finally block(if present) will be executed followed by rest of the program.",
+    "type": "para"
+  }, {
+    "content": "Control flow in try-finally",
+    "type": "bold-para-head"
+  }, {
+    "content": "In this case, no matter whether an exception occur in try-block or not, finally will always be executed. But control flow will depend on whether exception has occurred in try block or not.",
+    "type": "para"
+  }, {
+    "content": "Exception raised: If exception has been occurred in try block  then control flow will be finally block followed by default exception handling mechanism.",
+    "type": "bullet"
+  }, {
+    "content": "Exception not raised: If exception is not occurred in try block then control flow will be finally block followed by rest of the program",
+    "type": "bullet"
+  }, {
+    "content": "o\tFinally block in java can be used to put \"cleanup\" code such as closing a file, closing connection etc.",
+    "type": "bold-para"
+  }, {
+    "content": "For each try block there can be zero or more catch blocks, but only one finally block.",
+    "type": "para"
+  }, {
+    "content": "The finally block will not be executed if program exits(either by calling System.exit() or by causing a fatal error that causes the process to abort).",
+    "type": "para"
+  }, {
+    "content": "throw keyword",
+    "type": "bold-para-head"
+  }, {
+    "content": "The Java throw keyword is used to explicitly throw an exception. We can throw either checked or uncheked exception in java by throw keyword. The throw keyword is mainly used to throw custom exception.",
+    "type": "para"
+  }, {
+    "content": "public class TestThrow1{  --   static void validate(int age){  --     if(age<18)  --      throw new ArithmeticException(\"not valid\");  --     else  --      System.out.println(\"welcome to vote\");  --   }  --   public static void main(String args[]){  --      validate(13);  --      System.out.println(\"rest of the code...\");  --  }  --}  --Output:--Exception in thread main java.lang.ArithmeticException:not valid",
+    "type": "code"
+  }, {
+    "content": "Java Exception propagation",
+    "type": "bold-para-head"
+  }, {
+    "content": "An exception is first thrown from the top of the stack and if it is not caught, it drops down the call stack to the previous method,If not caught there, the exception again drops down to the previous method, and so on until they are caught or until they reach the very bottom of the call stack.This is called exception propagation.",
+    "type": "para"
+  }, {
+    "content": "Rule: By default Unchecked Exceptions are forwarded in calling chain (propagated).",
+    "type": "bold-para"
+  }, {
+    "content": "class TestExceptionPropagation1{  --  void m(){  --    int data=50/0;  --  }  --  void n(){  --    m();  --  }  --  void p(){  --   try{  --    n();  --   }catch(Exception e){System.out.println(\"exception handled\");}  --  }  --  public static void main(String args[]){  --   TestExceptionPropagation1 obj=new TestExceptionPropagation1();  --   obj.p();  --   System.out.println(\"normal flow...\");  --  }  --}  --\tOutput:exception handled--\t       normal flow...",
+    "type": "code"
+  }, {
+    "content": "Rule: By default, Checked Exceptions are not forwarded in calling chain (propagated).",
+    "type": "bold-para"
+  }, {
+    "content": "throws keyword",
+    "type": "bold-para-head"
+  }, {
+    "content": "The Java throws keyword is used to declare an exception. It gives an information to the programmer that there may occur an exception so it is better for the programmer to provide the exception handling code so that normal flow can be maintained.",
+    "type": "para"
+  }, {
+    "content": "Exception Handling is mainly used to handle the checked exceptions. If there occurs any unchecked exception such as NullPointerException, it is programmers fault that he is not performing check up before the code being used.",
+    "type": "para"
+  }, {
+    "content": "Which exception should be declared by throws:",
+    "type": "bold-para"
+  }, {
+    "content": "checked exception only, because unchecked Exception are under your control so correct your code. and\terror are beyond your control e.g. you are unable to do anything if there occurs VirtualMachineError or StackOverflowError.",
+    "type": "para"
+  }, {
+    "content": "Advantage of Java throws keyword",
+    "type": "bold-para"
+  }, {
+    "content": "Now Checked Exception can be propagated (forwarded in call stack).",
+    "type": "para"
+  }, {
+    "content": "Rule: If you are calling a method that declares an exception, you must either caught or declare the exception.",
+    "type": "bold-para"
+  }, {
+    "content": "In case you declare the exception till the main method, if exception occurs, an exception will be thrown at runtime because throws does not handle the exception.",
+    "type": "para"
+  }, {
+    "content": "You can declare multiple exceptions e.g. public void method()throws IOException,SQLException.",
+    "type": "para"
+  }, {
+    "content": "We can re-throw an exception by throwing same exception in catch block.",
+    "type": "para"
+  }, {
+    "content": "./assets/java/images/image033.jpg",
+    "type": "image"
+  }, {
+    "content": "ExceptionHandling with MethodOverriding in Java",
+    "type": "bold-para-head"
+  }, {
+    "content": "If the superclass method does not declare an exception, subclass overridden method cannot declare the checked exception but it can declare unchecked exception",
+    "type": "bullet"
+  }, {
+    "content": "If the superclass method declares an exception, subclass overridden method can declare same, subclass exception or no exception but cannot declare parent exception.",
+    "type": "bullet"
+  }, {
+    "content": "Java Custom Exception",
+    "type": "bold-para-head"
+  }, {
+    "content": "If you are creating your own Exception that is known as custom exception or user-defined exception. Java custom exceptions are used to customize the exception according to user need.",
+    "type": "para"
+  }, {
+    "content": "class InvalidAgeException extends Exception{  -- InvalidAgeException(String s){  --  super(s);  -- }  --}  --class TestCustomException1{  --  --   static void validate(int age)throws InvalidAgeException{  --     if(age<18)  --      throw new InvalidAgeException(\"not valid\");  --     else  --      System.out.println(\"welcome to vote\");  --   }  --     --   public static void main(String args[]){  --      try{  --      validate(13);  --      }catch(Exception m){System.out.println(\"Exception occured: \"+m);}  --  --      System.out.println(\"rest of the code...\");  --  }  --}  --Output:Exception occured: InvalidAgeException:not valid--rest of the code...",
+    "type": "code"
+  }]
+}]

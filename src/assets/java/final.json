@@ -1,0 +1,134 @@
+[{
+  "topic": "'final' Keyword",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "final keyword is used in different contexts. First of all, final is a non-access modifier applicable only to a variable, a method or a class.",
+    "type": "bold-para"
+  }, {
+    "content": "Following are different contexts where final is used:",
+    "type": "para"
+  }, {
+    "content": "./assets/java/images/image014.jpg",
+    "type": "image"
+  }, {
+    "content": "Final variables",
+    "type": "bold-para-head"
+  }, {
+    "content": "When a variable is declared with final keyword, it’s value can’t be modified,essentially, a constant. This also mean that you must initialize a final variable. ",
+    "type": "para"
+  }, {
+    "content": "If the final variable is a reference, this means that the variable cannot be re-bound to reference another object, but internal state of the object pointed by that reference variable can be changed i.e. you can add or remove elements from final array or final collection.",
+    "type": "bold-para"
+  }, {
+    "content": "It is good practice to represent final variables in all uppercase, using underscore to separate words.",
+    "type": "para"
+  }, {
+    "content": "Initializing a final variable:",
+    "type": "bold-para-head"
+  }, {
+    "content": "We must initialize a final variable, otherwise compiler will throw compile-time error.A final variable can only be initialized once, either via an initializer or an assignment statement. There are three ways to initialise a final variable:",
+    "type": "para"
+  }, {
+    "content": "1.\tYou can initialize a final variable when it is declared.This approach is the most common. A final variable is called blank final variable,if it is not initialised while declaration. Below are the two ways to initialise a blank final variable.",
+    "type": "para"
+  }, {
+    "content": "2.\tA blank final variable can be initialised inside instance-initializer block or inside constructor. If you have more than one constructor in your class then it must be initialized in all of them, otherwise compile time error will be thrown.  ",
+    "type": "para"
+  }, {
+    "content": "3.\tA blank final static variable can be initialized inside static block.",
+    "type": "para"
+  }, {
+    "content": "Let us see above different ways of initializing a final variable through an example.",
+    "type": "para"
+  }, {
+    "content": "Initialization blocks are executed whenever the class is initialized and before constructors are invoked.",
+    "type": "bullet"
+  }, {
+    "content": "They are typically placed above the constructors within braces.",
+    "type": "bullet"
+  }, {
+    "content": "//Java program to demonstrate different--// ways of initializing a final variable-- --class Gfg --{--    // a final variable--    // direct initialize--    final int THRESHOLD = 5;--     --    // a blank final variable--    final int CAPACITY;--     --    // another blank final variable--    final int  MINIMUM;--     --    // a final static variable PI--    // direct initialize--    static final double PI = 3.141592653589793;--     --    // a  blank final static  variable--    static final double EULERCONSTANT;--     --    // instance initializer block for --    // initializing CAPACITY--    {--        CAPACITY = 25;--    }--     --    // static initializer block for --    // initializing EULERCONSTANT--    static{--        EULERCONSTANT = 2.3;--    }--     --    // constructor for initializing MINIMUM--    // Note that if there are more than one--    // constructor, you must initialize MINIMUM--    // in them also--    public GFG() --    {--        MINIMUM = -1;--    }      --}",
+    "type": "code"
+  }, {
+    "content": "When to use a final variable:",
+    "type": "bold-para"
+  }, {
+    "content": "The only difference between a normal variable and a final variable is that we can re-assign value to a normal variable but we cannot change the value of a final variable once assigned. Hence final variables must be used only for the values that we want to remain constant throughout the execution of program.",
+    "type": "para"
+  }, {
+    "content": "Reference final variable:",
+    "type": "bold-para"
+  }, {
+    "content": "When a final variable is a reference to an object, then this final variable is called reference final variable. For example, a final StringBuffer variable looks like",
+    "type": "para"
+  }, {
+    "content": "final StringBuffer sb;",
+    "type": "code"
+  }, {
+    "content": "As you know that a final variable cannot be re-assign. But in case of a reference final variable, internal state of the object pointed by that reference variable can be changed. Note that this is not re-assigning. This property of final is called non-transitivity.",
+    "type": "para"
+  }, {
+    "content": "To understand what is mean by internal state of the object, see below example:",
+    "type": "para"
+  }, {
+    "content": "// Java program to demonstrate --// reference final variable--class Gfg--{--    public static void main(String[] args)     {--        // a final reference variable sb--        final StringBuilder sb = new StringBuilder(\"Geeks\");--             System.out.println(sb);--         // changing internal state of object--        // reference by final reference variable sb--        sb.append(\"ForGeeks\");--         --        System.out.println(sb);--    }    --}",
+    "type": "code"
+  }, {
+    "content": "Output: Geeks GeeksForGeeks",
+    "type": "bold-para"
+  }, {
+    "content": "The non-transitivity property also applies to arrays, because arrays are objects in java. Arrays with final keyword are also called final arrays.",
+    "type": "para"
+  }, {
+    "content": "As discussed above, a final variable cannot be reassign, doing it will throw compile-time error. ",
+    "type": "bullet"
+  }, {
+    "content": "When a final variable is created inside a method/constructor/block, it is called local final variable, and it must initialise once where it is created.",
+    "type": "bullet"
+  }, {
+    "content": "See below program for local final variable:",
+    "type": "para"
+  }, {
+    "content": "class Gfg--{--    public static void main(String args[])--    {--        // local final variable--        final int i;--        i = 20; --        System.out.println(i);--    }--}--Output:--20",
+    "type": "code"
+  }, {
+    "content": "Note the difference between C++ const variables and Java final variables. const variables in C++ must be assigned a value when declared. For final variables in Java, it is not necessary as we see in above examples. A final variable can be assigned value later, but only once.",
+    "type": "bullet"
+  }, {
+    "content": "final with foreach loop : final with for-each statement is a legal statement.",
+    "type": "bullet"
+  }, {
+    "content": "// Java program to demonstrate final--// with for-each statement-- --class Gfg --{--    public static void main(String[] args) --    {--        int arr[] = {1, 2, 3};--         --        // final with for-each statement--        // legal statement--        for (final int i : arr)--            System.out.print(i + \" \");--    }    --}--Output:--1 2 3",
+    "type": "code"
+  }, {
+    "content": "Explanation:",
+    "type": "bold-para"
+  }, {
+    "content": "Since the i variable goes out of scope with each iteration of the loop, it is actually re-declaration each iteration, allowing the same token (i.e. i) to be used to represent multiple variables.",
+    "type": "para"
+  }, {
+    "content": "Final classes",
+    "type": "bold-para-head"
+  }, {
+    "content": "When a class is declared with final keyword, it is called a final class. A final class cannot be extended(inherited). ",
+    "type": "bold-para"
+  }, {
+    "content": "There are two uses of a final class:",
+    "type": "para"
+  }, {
+    "content": "1.\tOne is definitely to prevent inheritance, as final classes cannot be extended. For example, all Wrapper Classes like Integer,Float etc. are final classes. We can not extend them.",
+    "type": "para"
+  }, {
+    "content": "2.\tThe other use of final with classes is to create an immutable class like the predefined String class. You can not make a class immutable without making it final.",
+    "type": "para"
+  }, {
+    "content": "Final methods",
+    "type": "bold-para-head"
+  }, {
+    "content": "When a method is declared with final keyword, it is called a final method. A final method cannot be overridden. ",
+    "type": "bold-para"
+  }, {
+    "content": "The Object class does this—a number of its methods are final.We must declare methods with final keyword for which we required to follow the same implementation throughout all the derived classes.",
+    "type": "para"
+  }]
+}]

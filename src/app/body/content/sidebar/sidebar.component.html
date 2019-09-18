@@ -1,0 +1,48 @@
+<aside>
+  <div class="sidebar left ">
+    <div class="user-panel">
+      <div *ngIf="getActiveContent()=='Front-end'" class="pull-left image">
+        <img src="../../../../assets/frontend.png" class="rounded-circle" alt="User Image">
+      </div>
+      <div  *ngIf="getActiveContent()=='Full-stack'" class="pull-left image">
+        <img src="../../../../assets/fullstack.png" class="rounded-circle" alt="User Image">
+      </div>
+      <div *ngIf="getActiveContent()=='Back-end'" class="pull-left image">
+        <img src="../../../../assets/backend.png" class="rounded-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <!-- <p class="mx-3 pt-2">Front-end</p> -->
+        <div class="nav-item dropdown"><a href="" data-toggle="dropdown"
+            class="nav-link font-weight-bold px-3 text-light dropdown-toggle">{{activeContent}}</a>
+          <div class="dropdown-menu   ">
+            <a *ngIf="!(getActiveContent()== 'Front-end')" href="#" (click)="setActiveContent('Front-end')"
+              class="dropdown-item ">Front-end</a>
+            <a *ngIf="!(getActiveContent()== 'Back-end')" href="#" (click)="setActiveContent('Back-end')"
+              class="dropdown-item ">Back-end</a>
+            <a *ngIf="!(getActiveContent()== 'Full-stack')" href="#" (click)="setActiveContent('Full-stack')"
+              class="dropdown-item ">Full-stack</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="list-sidebar bg-defoult">
+      <li *ngFor="let menu of menuArray" class="text-white">
+        <a *ngIf="menu.isList==false && ( getActiveContent()== menu.contentType || getActiveContent()=='Full-stack')"
+          href="#" (click)="activateTopic(menu.topicLink)"><i class="fa fa-diamond"></i>
+          <span class="nav-label">{{menu.displayValue}}</span></a>
+
+        <a *ngIf="menu.isList==true &&  ( getActiveContent()== menu.contentType || getActiveContent()=='Full-stack')"
+          href="#" data-toggle="collapse" [attr.data-target]="'#'+menu.id" class="collapsed active">
+          <i class="fa fa-th-large"></i> <span class="nav-label">{{menu.displayValue}}</span> <span
+            class="fa fa-chevron-left pull-right"></span>
+        </a>
+        <ul *ngIf="menu.isList==true && ( getActiveContent()== menu.contentType || getActiveContent()=='Full-stack')"
+          class="sub-menu collapse" id="{{menu.id}}">
+          <li *ngFor="let list of menu.subList">
+            <a href="#" (click)="activateTopic(list.topicLink)">{{list.displayValue}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</aside>

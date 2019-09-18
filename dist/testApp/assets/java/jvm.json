@@ -1,0 +1,29 @@
+[{
+  "topic": "Java Virtual Machine",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "A Virtual Machine is a software implementation of a physical machine. Java was developed with the concept of WORA (Write Once Run Anywhere), which runs on a VM. The compiler compiles the Java file into a Java .class file, then that .class file is input into the JVM, which Loads and executes the class file.",
+    "type": "para"
+  }, {
+    "content": "JVM - Java Virtual Machine - it is an abstract machine. It is a specification that provides runtime environment in which byte code can be executed. It is a specification. Its implementation is provided by JRE. Whenever a Java program is executed, an instance of JVM is created.",
+    "type": "para"
+  }, {
+    "content": "verifies code",
+    "type": "bullet"
+  }, {
+    "content": "execute code",
+    "type": "bullet"
+  }, {
+    "content": "provides runtime environment",
+    "type": "bullet"
+  }, {
+    "content": "JRE - Java Runtime Environment - JVM + class libraries + other files need by JVM at runtime. It is an implementation of JVM.",
+    "type": "bold-para"
+  }, {
+    "content": "JDK - JRE + development tools",
+    "type": "bold-para"
+  }, {
+    "content": "./assets/java/images/image001.png",
+    "type": "image"
+  }]
+}]

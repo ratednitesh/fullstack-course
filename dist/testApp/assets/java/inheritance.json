@@ -1,0 +1,50 @@
+[{
+  "topic": "Inheritance in Java",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "Inheritance in java is a mechanism in which one object acquires all the properties and behaviors of parent object.",
+    "type": "para"
+  }, {
+    "content": "The idea behind inheritance in java is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of parent class, and you can add new methods and fields also.",
+    "type": "para"
+  }, {
+    "content": "Inheritance represents the IS-A relationship, also known as parent-child relationship.",
+    "type": "bold-para"
+  }, {
+    "content": "Why use inheritance in java",
+    "type": "bold-para-head"
+  }, {
+    "content": "o\tFor Method Overriding (so runtime polymorphism can be achieved). ",
+    "type": "para"
+  }, {
+    "content": "o\tFor Code Reusability.",
+    "type": "para"
+  }, {
+    "content": "Why multiple inheritance is not supported in java?",
+    "type": "bold-para-head"
+  }, {
+    "content": "To reduce the complexity and simplify the language, multiple inheritance is not supported in java.",
+    "type": "para"
+  }, {
+    "content": "Consider a scenario where A, B and C are three classes. The C class inherits A and B classes. If A and B classes have same method and you call it from child class object, there will be ambiguity to call method of A or B class.",
+    "type": "para"
+  }, {
+    "content": "Since compile time errors are better than runtime errors, java renders compile time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error now.",
+    "type": "para"
+  }, {
+    "content": "Child classes inherit accessible fields and methods from their parent classes and other ancestors. They never inherit constructors.",
+    "type": "bold-para"
+  }, {
+    "content": "Instead, child classes declare their own constructors. Furthermore, they can declare their own fields and methods to differentiate them from their parents.",
+    "type": "para"
+  }, {
+    "content": "Whatever the parent class has, is by default available to the child. Hence by using child reference, we can call both parent and child class methods.",
+    "type": "para"
+  }, {
+    "content": "What ever the child class has, by default is not available to parent, hence on the parent class reference we can only call parent class methods but not child specific methods.",
+    "type": "para"
+  }, {
+    "content": "Parent class reference can be used to hold child class objects , but by using that reference we can call only parent class methods but not child specific methods.",
+    "type": "para"
+  }]
+}]

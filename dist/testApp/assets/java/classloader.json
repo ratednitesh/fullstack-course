@@ -1,0 +1,200 @@
+[{
+  "topic": "Class Loaders",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "Class loaders are responsible for loading Java classes during runtime dynamically to the JVM (Java Virtual Machine). Also, they are part of the JRE (Java Runtime Environment). Hence, the JVM doesn’t need to know about the underlying files or file systems to run Java programs thanks to class loaders.",
+    "type": "para"
+  }, {
+    "content": "Also, these Java classes aren’t loaded into memory all at once, but when required by an application. This is where class loaders come into the picture. They are responsible for loading classes into memory",
+    "type": "para"
+  }, {
+    "content": "Types of Built-in Class Loaders",
+    "type": "bold-para-head"
+  }, {
+    "content": "Bootstrap Class Loader",
+    "type": "bold-para-head"
+  }, {
+    "content": "Java classes are loaded by an instance of java.lang.ClassLoader. However, class loaders are classes themselves. Hence, the question is, who loads the java.lang.ClassLoader itself?",
+    "type": "para"
+  }, {
+    "content": "This is where the bootstrap or primordial class loader comes into the picture.",
+    "type": "para"
+  }, {
+    "content": "It’s mainly responsible for loading JDK internal classes, typically rt.jar and other core libraries located in $JAVA_HOME/jre/lib directory.",
+    "type": "para"
+  }, {
+    "content": "Additionally, Bootstrap class loader serves as a parent of all the other ClassLoader instances.",
+    "type": "bold-para"
+  }, {
+    "content": "This bootstrap class loader is part of the core JVM and is written in native code. Different platforms might have different implementations of this particular class loade",
+    "type": "para"
+  }, {
+    "content": "Extension Class Loader",
+    "type": "bold-para-head"
+  }, {
+    "content": "The extension class loader is a child of the bootstrap class loader and takes care of loading the extensions of the standard core Java classes so that it’s available to all applications running on the platform.",
+    "type": "para"
+  }, {
+    "content": "Extension class loader loads from the JDK extensions directory, usually $JAVA_HOME/lib/ext directory or any other directory mentioned in the java.ext.dirs system property.",
+    "type": "para"
+  }, {
+    "content": "System Class Loader",
+    "type": "bold-para-head"
+  }, {
+    "content": "The system or application class loader, on the other hand, takes care of loading all the application level classes into the JVM.",
+    "type": "para"
+  }, {
+    "content": "It loads files found in the classpath environment variable, -classpath or -cp command line option. Also, it’s a child of Extensions classloader.",
+    "type": "para"
+  }, {
+    "content": "How do Class Loaders Work?",
+    "type": "bold-para-head"
+  }, {
+    "content": "Class loaders are part of the Java Runtime Environment. When the JVM requests a class, the class loader tries to locate the class and load the class definition into the runtime using the fully qualified class name.",
+    "type": "para"
+  }, {
+    "content": "The java.lang.ClassLoader.loadClass() method is responsible for loading the class definition into runtime. ",
+    "type": "bold-para"
+  }, {
+    "content": "It tries to load the class based on a fully qualified name. If the class isn’t already loaded, it delegates the request to the parent class loader. This process happens recursively.",
+    "type": "para"
+  }, {
+    "content": "Eventually, if the parent class loader doesn’t find the class, then the child class will call java.net.URLClassLoader.findClass() method to look for classes in the file system itself.",
+    "type": "para"
+  }, {
+    "content": "If the last child class loader isn’t able to load the class either, it throws java.lang.NoClassDefFoundError or java.lang.ClassNotFoundException.",
+    "type": "bold-para"
+  }, {
+    "content": "Example",
+    "type": "bold-para"
+  }, {
+    "content": "java.lang.ClassNotFoundException: com.baeldung.classloader.SampleClassLoader    --    at java.net.URLClassLoader.findClass(URLClassLoader.java:381)    --    at java.lang.ClassLoader.loadClass(ClassLoader.java:424)    --    at java.lang.ClassLoader.loadClass(ClassLoader.java:357)    --    at java.lang.Class.forName0(Native Method)    --    at java.lang.Class.forName(Class.java:348)--",
+    "type": "code"
+  }, {
+    "content": "If we go through the sequence of events right from calling java.lang.Class.forName(), we can understand that it first tries to load the class through parent class loader and then java.net.URLClassLoader.findClass() to look for the class itself. When it still doesn’t find the class, it throws a ClassNotFoundException.",
+    "type": "para"
+  }, {
+    "content": "The ClassNotFoundException comes when Java tries to load a class by its binary name during runtime and Class is not available at that time. for example, when you load JDBC driver using Class.forName(String classname), you will get java.lang.ClassNotFoundExceptioninstead of NoClassDefFoundError.",
+    "type": "bullet"
+  }, {
+    "content": "There are three important features of class loaders:",
+    "type": "para"
+  }, {
+    "content": "Loading",
+    "type": "bullet"
+  }, {
+    "content": "Linking ",
+    "type": "bullet"
+  }, {
+    "content": "Initialization",
+    "type": "bullet"
+  }, {
+    "content": "1. Loading",
+    "type": "bold-para"
+  }, {
+    "content": "The Class loader reads the .class file, generate the corresponding binary data and save it in method area. For each .class file, JVM stores following information in method area.",
+    "type": "para"
+  }, {
+    "content": "Fully qualified name of the loaded class and its immediate parent class.",
+    "type": "bullet"
+  }, {
+    "content": "Whether .class file is related to Class or Interface or Enum",
+    "type": "bullet"
+  }, {
+    "content": "Modifier, Variables and Method information etc.",
+    "type": "bullet"
+  }, {
+    "content": "After loading .class file, JVM creates an object of type Class to represent this file in the heap memory. Please note that this object is of type Class predefined in java.lang package. This Class object can be used by the programmer for getting class level information like name of class, parent name, methods and variable information etc. To get this object reference we can use getClass() method of Object class.",
+    "type": "para"
+  }, {
+    "content": "// A Java program to demonstrate working of a Class type --// object created by JVM to represent .class file in --// memory. --import java.lang.reflect.Field; --import java.lang.reflect.Method; --  --// Java code to demonstrate use of Class object --// created by JVM --public class Test --{ --    public static void main(String[] args) --    { --        Student s1 = new Student(); --  --        // Getting hold of Class object created --        // by JVM. --        Class c1 = s1.getClass(); --  --        // Printing type of object using c1. --        System.out.println(c1.getName()); --  --        // getting all methods in an array --        Method m[] = c1.getDeclaredMethods(); --        for (Method method : m) --            System.out.println(method.getName()); --  --        // getting all fields in an array --        Field f[] = c1.getDeclaredFields(); --        for (Field field : f) --            System.out.println(field.getName()); --    } --} --  --// A sample class whose information is fetched above using --// its Class object. --class Student --{ --    private String name; --    private int roll_No; --  --    public String getName()  {  return name;   } --    public void setName(String name) { this.name = name; } --    public int getRoll_no()  { return roll_No;  } --    public void setRoll_no(int roll_no) { --        this.roll_No = roll_no; --    } --} --",
+    "type": "code"
+  }, {
+    "content": "Output: ",
+    "type": "bold-para"
+  }, {
+    "content": "Student--getName--setName--getRoll_no--setRoll_no--name--roll_No--",
+    "type": "code"
+  }, {
+    "content": "Note : For every loaded .class file, only one object of Class is created.",
+    "type": "bold-para"
+  }, {
+    "content": "Student s2 = new Student();--// c2 will point to same object where --// c1 is pointing--Class c2 = s2.getClass();--System.out.println(c1==c2); // true",
+    "type": "code"
+  }, {
+    "content": "2. Linking",
+    "type": "bold-para"
+  }, {
+    "content": "Performs verification, preparation, and (optionally) resolution.",
+    "type": "para"
+  }, {
+    "content": "•\tVerification : It ensures the correctness of .class file i.e. it check whether this file is properly formatted and generated by valid compiler or not. If verification fails, we get run-time exception java.lang.VerifyError.",
+    "type": "para"
+  }, {
+    "content": "•\tPreparation : JVM allocates memory for class variables and initializing the memory to default values.",
+    "type": "para"
+  }, {
+    "content": "•\tResolution : It is the process of replacing symbolic references from the type with direct references. It is done by searching into method area to locate the referenced entity.",
+    "type": "para"
+  }, {
+    "content": "3. Initialization",
+    "type": "bold-para"
+  }, {
+    "content": "In this phase, all static variables are assigned with their values defined in the code and static block(if any). This is executed from top to bottom in a class and from parent to child in class hierarchy.",
+    "type": "para"
+  }, {
+    "content": "./assets/java/images/image003.jpg",
+    "type": "image"
+  }, {
+    "content": "Delegation Model",
+    "type": "bold-para-head"
+  }, {
+    "content": "Class loaders follow the delegation model where on request to find a class or resource, a ClassLoader instance will delegate the search of the class or resource to the parent class loader.",
+    "type": "para"
+  }, {
+    "content": "Let’s say we have a request to load an application class into the JVM. The system class loader first delegates the loading of that class to its parent extension class loader which in turn delegates it to the bootstrap class loader.",
+    "type": "para"
+  }, {
+    "content": "Only if the bootstrap and then the extension class loader is unsuccessful in loading the class, the system class loader tries to load the class itself.",
+    "type": "para"
+  }, {
+    "content": "Unique Classes",
+    "type": "bold-para"
+  }, {
+    "content": "As a consequence of the delegation model, it’s easy to ensure unique classes as we always try to delegate upwards. If the parent class loader isn’t able to find the class, only then the current instance would attempt to do so itself.",
+    "type": "para"
+  }, {
+    "content": "Visibility",
+    "type": "bold-para"
+  }, {
+    "content": "In addition, children class loaders are visible to classes loaded by its parent class loaders.",
+    "type": "para"
+  }, {
+    "content": "For instance, classes loaded by the system class loader have visibility into classes loaded by the extension and Bootstrap class loaders but not vice-versa.",
+    "type": "para"
+  }, {
+    "content": "To illustrate this, if Class A is loaded by an application class loader and class B is loaded by the extensions class loader, then both A and B classes are visible as far as other classes loaded by Application class loader are concerned.",
+    "type": "para"
+  }, {
+    "content": "Class B, nonetheless, is the only class visible as far as other classes loaded by the extension class loader are concerned.",
+    "type": "para"
+  }, {
+    "content": "[EXAMPLE] How different classes are loaded using various class loaders ",
+    "type": "bold-para"
+  }, {
+    "content": "public void printClassLoaders() throws ClassNotFoundException {-- --    System.out.println(\"Classloader of this class:\"--        + PrintClassLoader.class.getClassLoader());-- --    System.out.println(\"Classloader of Logging:\"--        + Logging.class.getClassLoader());-- --    System.out.println(\"Classloader of ArrayList:\"--        + ArrayList.class.getClassLoader());--}",
+    "type": "code"
+  }, {
+    "content": "Output:",
+    "type": "bold-para"
+  }, {
+    "content": "Class loader of this class:sun.misc.Launcher$AppClassLoader@18b4aac2--Class loader of Logging:sun.misc.Launcher$ExtClassLoader@3caeaf62--Class loader of ArrayList:null",
+    "type": "code"
+  }, {
+    "content": "The application class loader loads the class where the example method is contained. An application or system class loader loads our own files in the classpath. Next, the extension one loads the Logging class. Extension class loaders load classes that are an extension of the standard core Java classes. Finally, the bootstrap one loads the ArrayList class. A bootstrap or primordial class loader is the parent of all the others.",
+    "type": "para"
+  }, {
+    "content": "However, we can see that the last out, for the ArrayList it displays null in the output. This is because the bootstrap class loader is written in native code, not Java – so it doesn’t show up as a Java class. Due to this reason, the behavior of the bootstrap class loader will differ across JVMs.",
+    "type": "para"
+  }]
+}]

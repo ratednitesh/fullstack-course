@@ -1,0 +1,74 @@
+[{
+  "topic": "Interface in Java",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "An interface in java is a blueprint of a class. It has static constants and abstract methods.",
+    "type": "para"
+  }, {
+    "content": "The interface in java is a mechanism to achieve abstraction. There can be only abstract methods in the java interface not method body. It is used to achieve abstraction and multiple inheritance in Java.",
+    "type": "para"
+  }, {
+    "content": "Java Interface also represents IS-A relationship.",
+    "type": "para"
+  }, {
+    "content": "It cannot be instantiated just like abstract class.",
+    "type": "para"
+  }, {
+    "content": "Why use Java interface?",
+    "type": "bold-para-head"
+  }, {
+    "content": "There are mainly three reasons to use interface. They are given below:",
+    "type": "para"
+  }, {
+    "content": "It is used to achieve abstraction. ",
+    "type": "bullet"
+  }, {
+    "content": "It can be used to achieve loose coupling.",
+    "type": "bullet"
+  }, {
+    "content": "By interface, we can support the functionality of multiple inheritance.",
+    "type": "bullet"
+  }, {
+    "content": "The java compiler adds public and abstract keywords before the interface method. More, it adds public, static and final keywords before data members.",
+    "type": "para"
+  }, {
+    "content": "In other words, Interface fields are public, static and final by default, and methods are public and abstract.",
+    "type": "bold-para"
+  }, {
+    "content": "An interface in java is a blueprint of a class. It has static constants and abstract methods.  It is used to achieve abstraction and multiple inheritance in Java.",
+    "type": "para"
+  }, {
+    "content": "Since Java 8, interface can have default and static methods body definition.",
+    "type": "para"
+  }, {
+    "content": "Marker or Tagged interface",
+    "type": "bold-para-head"
+  }, {
+    "content": "An interface that have no member is known as marker or tagged interface. For example: Serializable, Cloneable, Remote etc. They are used to provide some essential information to the JVM so that JVM may perform some useful operation.",
+    "type": "para"
+  }, {
+    "content": "Note: An interface can have another interface i.e. known as nested interface.",
+    "type": "bold-para"
+  }, {
+    "content": "a) interface inside interface ",
+    "type": "para"
+  }, {
+    "content": "b) interface inside class",
+    "type": "para"
+  }, {
+    "content": "c) class inside interface",
+    "type": "para"
+  }, {
+    "content": "An interface gives template structure of methods from which new classes can be developed easily.",
+    "type": "para"
+  }, {
+    "content": "The same abstract methods of the interface can be overridden with different functionalities by different sub-classes.",
+    "type": "para"
+  }, {
+    "content": "From Java 9 onwards, interfaces can contain Static methods, Private methods and Private Static methods.",
+    "type": "para"
+  }, {
+    "content": "There is a rule that every member of interface is only and only public whether you define or not. So when we define the method of the interface in a class implementing the interface, we have to give it public access as child class can’t assign the weaker access to the methods. If we change it to anything other than public in class implementing interface, we get compiler error “attempting to assign weaker access privileges; was public”",
+    "type": "bold-para"
+  }]
+}]

@@ -1,0 +1,17 @@
+<!-- banner section -->
+<section>
+  <div class="container-fluid">
+    <div class="row bg-info justify-content-center align-items-center " style="height:100vh">
+      <div class="col-sm-10 mt-5 text-center">
+        <h1 class="display-2">
+          <span class="text-white font-weight-bold">{{title}}</span>
+          <span class="text-dark"> {{subtitle}}</span>
+        </h1>
+        <h2 class="font-weight-light font-italic text-light">{{description}}
+        </h2>
+        <a (click)="loadConent('backend')" class="btn btn-warning btn-lg px-4 m-3">Back-end</a>
+        <a (click)="loadConent('frontend')" class="btn btn-dark text-white btn-lg px-4 m-3">Front-end</a>
+      </div>
+    </div>
+  </div>
+</section>

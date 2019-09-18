@@ -1,0 +1,59 @@
+[{
+  "topic": "Variable and Data Types",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "Primitive data types",
+    "type": "bold-para"
+  }, {
+    "content": "\t\t \tbyte\t1 byte",
+    "type": "para"
+  }, {
+    "content": "\t\t \tshort\t2 bytes",
+    "type": "para"
+  }, {
+    "content": "\t\t \tint\t4 bytes",
+    "type": "para"
+  }, {
+    "content": "\t\t \tlong\t8 bytes",
+    "type": "para"
+  }, {
+    "content": "\t\t \tfloat\t4 bytes",
+    "type": "para"
+  }, {
+    "content": "\t\t \tdouble\t8 bytes",
+    "type": "para"
+  }, {
+    "content": "\t\t \tchar\t2 byte",
+    "type": "para"
+  }, {
+    "content": "\t\t \tboolean  true/false",
+    "type": "para"
+  }, {
+    "content": "Casting Primitives",
+    "type": "bold-para-head"
+  }, {
+    "content": "byte-> short -> int--char -> int--int -> long,double,float--long -> float, double--float-> double",
+    "type": "code"
+  }, {
+    "content": "Widening , Narrowing & Typecasting:",
+    "type": "bold-para-head"
+  }, {
+    "content": "int a=10;--float b=a; //widening output: 10----float f=10.5f;--int a=(int) f; //narrowing a=10 , f=10.5f----int a =130;--byte b= (byte)a; // -126 - overflowing----byte a=10;  --byte b=10;  --//byte c=a+b;//Compile Time Error: because a+b=20 will be int  --byte c=(byte)(a+b);----short b=10;  --a=a+b;//Compile time error because 10+10=20 now int --a=(short)(a+b);//20 which is int now converted to short----Employee emp = new Employee();--VicePresident veep = new VicePresident();--emp = veep; // no cast needed for upward use //  VicePresident is a subclass of Employee--veep = (VicePresident)emp; // must cast explicitly",
+    "type": "code"
+  }, {
+    "content": "Widening Primitive Conversion in Java",
+    "type": "bold-para"
+  }, {
+    "content": "public class Test--{--    public static void main(String[] args)--    {--        System.out.print(\"Y\" + \"O\");--        System.out.print('L' + 'O');--    }--}",
+    "type": "code"
+  }, {
+    "content": "Output: YO155",
+    "type": "bold-para"
+  }, {
+    "content": "Explanation:",
+    "type": "bold-para"
+  }, {
+    "content": "When we use double quotes, the text is treated as a string and “YO” is printed, but when we use single quotes, the characters ‘L’ and ‘O’ are converted to int. This is called widening primitive conversion. After conversion to integer, the numbers are added ( ‘L’ is 76 and ‘O’ is 79) and 155 is printed. Widening primitive conversion happens only when ‘+’ operator is present.",
+    "type": "para"
+  }]
+}]

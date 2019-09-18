@@ -1,0 +1,104 @@
+[{
+  "topic": "OOPS Concept",
+  "subHeading": "",
+  "paragraph": [{
+    "content": "Abstraction",
+    "type": "bold-para-head"
+  }, {
+    "content": "Abstraction is a process of identifying the relevant qualities and behaviors an object should possess. ",
+    "type": "bold-para"
+  }, {
+    "content": "Let’s take an example to understand abstraction. A Laptop consists of many things such as processor, motherboard, RAM, keyboard, LCD screen, wireless antenna, web camera, USB ports, battery, speakers etc. To use it, you don't need to know how internally LCD screens, keyboard, web camera, battery, wireless antenna, speaker works.  You just need to know how to operate the laptop by switching it on. The intrinsic details are invisitble. Think about if you would have to call to the engineer who knows all internal details of the laptop before operating it. This would have highly expensive as well as not easy to use everywhere by everyone. So here the Laptop is an object that is designed to hide its complexity.",
+    "type": "para"
+  }, {
+    "content": "Think if you need to write a piece of software to track the students details of a school, you may probably need to create Students objects. People comes in all different backgrounds, educational qualifications, locations, hobbies, ages and have multiple religion, language but in terms of application, an student is just a name, age, class and roll number, while the other qualities are not relevant to the application. Determining what other qualities (background, qualifications, location, hobbies etc) are in terms of this application is abstraction.",
+    "type": "para"
+  }, {
+    "content": "In object-oriented software, complexity is managed by using abstraction. Abstraction is a process that involves identifying the critical behavior of an object and eliminating irrelevant and complex detilals. A well thought-out abstraction is usually simple, and easy to use in the perspective of the user, the person who is using your object.",
+    "type": "bold-para"
+  }, {
+    "content": "How Abstraction Works?",
+    "type": "bold-para-head"
+  }, {
+    "content": "Abstraction as an OOPs concept in Java works by letting programmers create useful, reusable tools. For example, a programmer can create several different types of objects. These can be variables, functions, or data structures. Programmers can also create different classes of objects. These are ways to define the objects.",
+    "type": "para"
+  }, {
+    "content": "For instance, a class of variable might be an address. The class might specify that each address object shall have a name, street, city, and zip code. The objects, in this case, might be employee addresses, customer addresses, or supplier addresses.",
+    "type": "para"
+  }, {
+    "content": "Encapsulation",
+    "type": "bold-para-head"
+  }, {
+    "content": "Encapsulation is a method for protecting data from unwanted access or alteration by packaging it in an object where it is only accessible through the object's interface. ",
+    "type": "bold-para"
+  }, {
+    "content": "Encapsulation are often referred to as information hiding. But both are different. Infact information hiding is actually the result of Encapsulation.",
+    "type": "para"
+  }, {
+    "content": " Encapsulation makes it possible to separate an object's implementation from its orgiinal behavior - to restrict access of its internal data. This restriction facilitate certains detiails of an object;s behavior to be hidden. This allows to protect an object's interal state from corruption by its user.",
+    "type": "para"
+  }, {
+    "content": "It is the mechanism by which Abstraction is implemented. In other words you can say that it is the result of the Encapsulation.",
+    "type": "para"
+  }, {
+    "content": "For example,  the Laptop is an object that encapsulates many technologies/hardwares that might not be understood clearly by most people who use it.",
+    "type": "para"
+  }, {
+    "content": "How Encapsulation Works?",
+    "type": "bold-para-head"
+  }, {
+    "content": "Encapsulation lets us re-use functionality without jeopardizing security. It’s a powerful OOPs concept in Java because it helps us save a lot of time. For example, we may create a piece of code that calls specific data from a database. It may be useful to reuse that code with other databases or processes. Encapsulation lets us do that while keeping our original data private. It also lets us alter our original code without breaking it for others who have adopted it in the meantime.",
+    "type": "para"
+  }, {
+    "content": "Inheritance",
+    "type": "bold-para-head"
+  }, {
+    "content": "Inheritance is the ability to define a new class or object that inherits the behaviour and its functionality of an existing class.  The new class or object is called a child or subclass or derived class while the original class is called parent or base class.",
+    "type": "bold-para"
+  }, {
+    "content": "For example, in a software company Software Engineers, Sr. Software Engineers, Module Lead, Technical Lead, Project Lead, Project Manager, Program Manager, Directors all are the employees of the company but their work, perks, roles, responsibilities differs. So in OOP, the Employee base class would provide the common behaviours of all types/level of employee and also some behaviours properties that all employee must have for that company. The particular sub class or child class of the employee would implement behaviours specific to that level of the employee. ",
+    "type": "para"
+  }, {
+    "content": "So by above example you can notice that the main concept behind inheritance are extensibility and code reuse (in this case you are extending the Employee class and using its code into sub class or derived class).",
+    "type": "para"
+  }, {
+    "content": "How Inheritance Works?",
+    "type": "bold-para-head"
+  }, {
+    "content": "Inheritance is another labor-saving Java OOPs concept. It works by letting a new class adopt the properties of another. We call the inheriting class a subclass or a child class. The original class is often called the parent. We use the keyword extends to define a new class that inherits properties from an old class.",
+    "type": "para"
+  }, {
+    "content": "Polymorphism",
+    "type": "bold-para-head"
+  }, {
+    "content": "As name suggests, Polymorphism means an ability to assume different forms at different places. ",
+    "type": "bold-para"
+  }, {
+    "content": "In OOP, it is a language's ability to handle objects differently based on their runtime type and use. Polymorphism is briefly described as \"one interface, many implementations\".Polymorphism is a characteristic of being able to assign a different meaning or usage to something in different contexts - specifically, to allow an entity such as a variable, a function, or an object to have more than one form.",
+    "type": "para"
+  }, {
+    "content": "There are two types of polymorphism.",
+    "type": "para"
+  }, {
+    "content": "Compile time polymorphism - It is achieved by overloading functions and operators",
+    "type": "bullet"
+  }, {
+    "content": "Run time polymorphism - It is achieved by overriding virtual functions",
+    "type": "bullet"
+  }, {
+    "content": "Lets say you have a class that have many Load methods having different parameters, this is called Compile time polymorphism. Lets take another example where you have a virtual method in the base class called Load with one parameter and you have redefined its functionality in your sub class by overriding base class Load method,  this is called Run time polymorphism.",
+    "type": "para"
+  }, {
+    "content": "How Polymorphism Works?",
+    "type": "bold-para-head"
+  }, {
+    "content": "Polymorphism in Java works by using a reference to a parent class to affect an object in the child class. We might create a class called “horse” by extending the “animal” class. That class might also implement the “professional racing” interface. The “horse” class is “polymorphic,” since it inherits attributes of both the “animal” and “professional racing” class.",
+    "type": "para"
+  }, {
+    "content": "In method overriding, the child class can use the OOP polymorphism concept to override a method of its parent class. That allows a programmer to use one method in different ways depending on whether it’s invoked by an object of the parent class or an object of the child class.",
+    "type": "para"
+  }, {
+    "content": "In method overloading, a single method may perform different functions depending on the context in which it’s called. That is, a single method name might work in different ways depending on what arguments are passed to it.",
+    "type": "para"
+  }]
+}]
