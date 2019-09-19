@@ -12,7 +12,7 @@
       <div *ngIf="par.type=='bullet'">
         <li class="px-3 lead"><strong>{{par.content}}</strong></li>
       </div>
-      <div class="  p-3 mt-4 mx-4" *ngIf="par.type=='code'"
+      <div class="  p-3 mt-4 mx-1" *ngIf="par.type=='code'"
         style="background-color: rgb(224, 222, 213); border-radius: 25px ">
         <div *ngFor="let c of par.content|codeformat" style="word-wrap: break-word">
           <p class="lead pl-4"

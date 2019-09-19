@@ -85,7 +85,8 @@ export class SidebarComponent implements OnInit{
     }
 
   ];
-  constructor(private selecttopicService: SelecttopicService, private activebodyService: ActivebodyService) { }
+  constructor(private selecttopicService: SelecttopicService, 
+    private activebodyService: ActivebodyService) { }
 
   ngOnInit() {
   }
@@ -94,11 +95,6 @@ export class SidebarComponent implements OnInit{
     this.selecttopicService.setActiveTopic(activeTopic);
   }
 
-  setActiveContent(activeContent: String) {
-    this.selecttopicService.setActiveTopic('start');
-    this.activebodyService.setActiveBody(activeContent);
-    this.activeContent = activeContent;
-  }
 
   getActiveContent() {
     return this.activeContent;

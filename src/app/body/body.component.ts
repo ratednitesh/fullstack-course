@@ -17,7 +17,7 @@ export class BodyComponent implements OnInit, OnDestroy {
       activeBody => { 
         this.activeBody = activeBody;
        }
-      );;
+      );
    
   }
 

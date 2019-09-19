@@ -120,17 +120,6 @@ a.navbar-brand {
     width: 165px;
 }
 
-.dropdown-menu{
-    background-color: #000;
-}
-.dropdown-menu  > a{
-    color: white;
-}
-.dropdown-menu  > a:hover {
-    background-color: transparent;
-    color: gold;
-  
-}
 /***    left menu ****/
 
 /***********************  TOP Bar ********************/

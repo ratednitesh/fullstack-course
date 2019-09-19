@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-content',
@@ -7,9 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
   @Input('activeContent') activeContent: string;
+  subscription: Subscription;
+
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }
