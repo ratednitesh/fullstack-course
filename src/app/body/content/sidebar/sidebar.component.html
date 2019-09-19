@@ -1,9 +1,9 @@
 <aside>
   <div class="sidebar left ">
-  <ul class="list-sidebar bg-defoult">
+    <ul class="list-sidebar bg-defoult">
       <li *ngFor="let menu of menuArray" class="text-white">
         <a *ngIf="menu.isList==false && ( getActiveContent()== menu.contentType || getActiveContent()=='Full-stack')"
-          href="#" (click)="activateTopic(menu.topicLink)"class="topic"><i class="fa fa-diamond"></i>
+          href="#" (click)="activateTopic(menu.topicLink)" class="topic"><i class="fa fa-diamond"></i>
           <span class="nav-label">{{menu.displayValue}}</span></a>
 
         <a *ngIf="menu.isList==true &&  ( getActiveContent()== menu.contentType || getActiveContent()=='Full-stack')"
@@ -11,7 +11,7 @@
           <i class="fa fa-th-large"></i> <span class="nav-label">{{menu.displayValue}}</span> <span
             class="fa fa-chevron-left pull-right"></span>
         </a>
-        <ul *ngIf="menu.isList==true && ( getActiveContent()== menu.contentType || getActiveContent()=='Full-stack')"
+        <ul *ngIf="menu.isList==true && ( getActiveContent()== menu.contentType || getActiveContent()=='Full-stack')" data-toggle="collapse" [attr.data-target]="'#'+menu.id" 
           class="sub-menu collapse" id="{{menu.id}}">
           <li *ngFor="let list of menu.subList">
             <a href="#" (click)="activateTopic(list.topicLink)">{{list.displayValue}}</a>
