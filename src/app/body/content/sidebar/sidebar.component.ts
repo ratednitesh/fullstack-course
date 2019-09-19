@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SelecttopicService } from '../selecttopic.service';
+import { ActivebodyService } from 'src/app/activebody.service';
 
 class List {
   displayValue: String;
@@ -19,8 +20,9 @@ class Menu {
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
-  activeContent: String = 'Full-stack';
+export class SidebarComponent implements OnInit{
+  
+  @Input() activeContent: String;
   menuArray: Array<Menu> = [
     {
       id: 'corejava', displayValue: 'Core Java', topicLink: '', contentType: 'Back-end', isList: true,
@@ -65,25 +67,25 @@ export class SidebarComponent implements OnInit {
     {
       id: 'angular', displayValue: 'Angular', topicLink: '', contentType: 'Front-end', isList: true,
       subList: [
-        { displayValue: 'JVM', topicLink: 'java/jvm' },
-        { displayValue: 'ClassLoader', topicLink: 'java/classloader' }
+        { displayValue: 'Components', topicLink: 'underConstruction' },
+        { displayValue: 'Services', topicLink: 'underConstruction' }
       ]
     },
     {
-      id: 'classloader', displayValue: 'Javascript', topicLink: 'java/classloader', contentType: 'Front-end', isList: false,
+      id: 'classloader', displayValue: 'Javascript', topicLink: 'underConstruction', contentType: 'Front-end', isList: false,
       subList: []
     },
     {
       id: 'ds', displayValue: 'Data Structure', topicLink: '', contentType: 'Back-end', isList: true,
       subList: [
-        { displayValue: 'Tree', topicLink: 'java/jvm' },
-        { displayValue: 'LinkedList', topicLink: 'java/classloader' },
-        { displayValue: 'ArrayList', topicLink: 'java/classloader' }
+        { displayValue: 'Tree', topicLink: 'underConstruction' },
+        { displayValue: 'LinkedList', topicLink: 'underConstruction' },
+        { displayValue: 'ArrayList', topicLink: 'underConstruction' }
       ]
     }
 
   ];
-  constructor(private selecttopicService: SelecttopicService) { }
+  constructor(private selecttopicService: SelecttopicService, private activebodyService: ActivebodyService) { }
 
   ngOnInit() {
   }
@@ -93,6 +95,8 @@ export class SidebarComponent implements OnInit {
   }
 
   setActiveContent(activeContent: String) {
+    this.selecttopicService.setActiveTopic('start');
+    this.activebodyService.setActiveBody(activeContent);
     this.activeContent = activeContent;
   }
 

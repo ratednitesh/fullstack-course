@@ -13,7 +13,12 @@ export class BodyComponent implements OnInit, OnDestroy {
   constructor(private activebodyService: ActivebodyService) { }
 
   ngOnInit() {
-    this.subscription =this.activebodyService.getActiveBody().subscribe(activeBody => { this.activeBody = activeBody; });;
+    this.subscription =this.activebodyService.getActiveBody().subscribe(
+      activeBody => { 
+        this.activeBody = activeBody;
+       }
+      );;
+   
   }
 
   getActiveBody(){

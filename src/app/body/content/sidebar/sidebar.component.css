@@ -2,9 +2,9 @@
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700');
 
-body{ font-size: 14px; color: #333; list-style: 26px;font-family: 'Roboto', sans-serif; }
+/* body{ font-size: 14px; color: #333; list-style: 26px;font-family: 'Roboto', sans-serif; } */
 
-/** ======================  base css ==============================**/
+
 
 a:hover{ text-decoration: none; }
 /** ======================  header ==============================**/
@@ -134,7 +134,7 @@ a.navbar-brand {
 /***    left menu ****/
 
 /***********************  TOP Bar ********************/
-.sidebar{ width:195px;  background-color:#000;transition: all 0.5s  ease-in-out; }
+.sidebar{ width:100%;  background-color:#000;transition: all 0.5s  ease-in-out; }
 .bg-defoult{background-color:#222;}
 .sidebar ul{ list-style:none; margin:0px; padding:0px; }
 .sidebar li a,.sidebar li a.collapsed.active{ display:block; padding:8px 12px; color:#fff;border-left:0px solid #dedede;  text-decoration:none}

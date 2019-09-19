@@ -1,8 +1,8 @@
 <div *ngIf="getActiveBody()=='Home'" class="">
     <app-banner></app-banner>
 </div>
-<div *ngIf="getActiveBody()=='Content'" class="">
-    <app-content></app-content>
+<div *ngIf="getActiveBody()=='Full-stack' || getActiveBody()=='Back-end' || getActiveBody()=='Front-end'" class="">
+    <app-content [activeContent]="getActiveBody()"></app-content>
 </div>
 <div *ngIf="getActiveBody()=='Admin'" class="">
     <app-admin></app-admin>

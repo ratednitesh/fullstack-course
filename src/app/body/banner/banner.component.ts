@@ -17,8 +17,8 @@ export class BannerComponent implements OnInit {
   ngOnInit() {
   }
 
-  loadConent(contentType:String){
-    this.activebodyService.setActiveBody('Content');
+  activateBody(contentType:String){
+    this.activebodyService.setActiveBody(contentType);
   }
 
 

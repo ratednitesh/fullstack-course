@@ -21,7 +21,7 @@ class MainContent {
   styleUrls: ['./doc.component.css']
 })
 export class DocComponent implements OnInit, OnDestroy {
-  activeTopic: String = 'java/jvm';
+  activeTopic: String = 'start';
   subscription: Subscription;
   topicHeading: String = "";
   mainContentArray: Array<MainContent>;
@@ -35,10 +35,8 @@ export class DocComponent implements OnInit, OnDestroy {
   initializeMainContentArray() { }
 
   ngOnInit() {
-    console.log("ngonint");
     this.subscription = this.selecttopicService.getActiveTopic().subscribe(activeTopic => {
       this.activeTopic = activeTopic;
-      console.log("here");
       this.docService.getJSON(this.activeTopic + '.json').subscribe(data => {
         this.mainContentArray = data;
       });
