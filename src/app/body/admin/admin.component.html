@@ -1,55 +1,54 @@
-<div class="container mx-5 pb-5 mt-5 pt-5">
-  <h4 class="display-4 text-center">Admin Controls</h4>
+<div class=" bg-dark p-5 text-white" style="min-height:100vh">
+  <h4 class="display-4 text-center pt-5">Add an Article</h4>
   <div>
     <form form (ngSubmit)="onSubmit()" #newForm="ngForm">
       <div class="row">
         <div *ngFor="let inputItem of inputItems; let i=index" class="col-sm-12" #item>
           <label for="{{inputItem.id}}-{{i}}">{{inputItem.displayName}}</label>
-          <button *ngIf="inputItem.addFlag" class="btn btn-default" type="button" (click)="removeItem(item)"><i
-              class="fa fa-times" aria-hidden="true"></i></button>
+          <button *ngIf="inputItem.addFlag" class="btn btn-default" type="button" (click)="removeItem(item)">
+            <i class="fa fa-times" aria-hidden="true"></i></button>
           <input type="{{inputItem.type}}" id="{{inputItem.id}}_{{i}}" class="form-control"
-            name="{{inputItem.id}}_{{i}}" ngModel required>
+            name="{{inputItem.id}}_{{i}}" ngModel required style="max-width: 90%">
         </div>
       </div>
       <hr>
-      <div class="row mt-4 pt-5">
-        <div class="col-sm-2">
+      <div class="row align-content-between" style="max-width: 90%  ">
+        <div class="col-sm-2 py-2">
           <button class="btn btn-info" type="button" (click)="addAnItem('bold-para-head')">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Bold Heading
           </button>
         </div>
-        <div class="col-sm-2 text-right">
+        <div class="col-sm-2 py-2">
           <button class="btn btn-info" type="button" (click)="addAnItem('para')">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Paragraph
           </button>
         </div>
-  
-        <div class="col-sm-2 text-center">
+        <div class="col-sm-2 py-2">
           <button class="btn btn-info" type="button" (click)="addAnItem('bullet')">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Bullet
           </button>
         </div>
-        <div class="col-sm-2">
-            <button class="btn btn-info" type="button" (click)="addAnItem('bold-para')">
-              <i class="fa fa-plus" aria-hidden="true"></i>
-              Bold Paragraph
-            </button>
-          </div>
-        <div class="col-sm-2 text-center">
+        <div class="col-sm-2 py-2">
+          <button class="btn btn-info" type="button" (click)="addAnItem('bold-para')">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Bold Paragraph
+          </button>
+        </div>
+        <div class="col-sm-2 py-2">
           <button class="btn btn-info" type="button" (click)="addAnItem('image')">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Image
           </button>
         </div>
-        <div class="col-sm-2 text-right">
-            <button class="btn btn-info" type="button" (click)="addAnItem('code')">
-              <i class="fa fa-plus" aria-hidden="true"></i>
-              Code Snippet
-            </button>
-          </div>
+        <div class="col-sm-2 py-2">
+          <button class="btn btn-info" type="button" (click)="addAnItem('code')">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Code Snippet
+          </button>
+        </div>
       </div>
       <!-- <label for="secret">Add an element</label>
       <button class="btn btn-default" type="button" (click)="addItem(options)"><i class="fa fa-plus"
@@ -64,7 +63,7 @@
         <option value="code">Add a code snippet</option>
       </select> -->
       <hr>
-      <button class="btn btn-primary" type="submit"> Submit</button>
+      <button class="btn btn-warning" type="submit"> Submit</button>
     </form>
   </div>
 </div>

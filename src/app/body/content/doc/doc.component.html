@@ -1,5 +1,5 @@
-<div class="container px-5 pb-5 mt-2 pt-5"  >
-  <div *ngFor="let mainContent of mainContentArray">
+<div class="container px-5 pb-5 pt-5"  style="min-height:100vh">
+  <div class="mt-5" *ngFor="let mainContent of mainContentArray">
     <h1 class="display-4 text-center">{{mainContent.topic}}</h1>
     <h3 class="display-4" style="font-size:40px">{{mainContent.subHeading}}</h3>
     <div *ngFor="let par of mainContent.paragraph">
@@ -14,9 +14,9 @@
       </div>
       <div class="  p-3 mt-4 mx-4" *ngIf="par.type=='code'"
         style="background-color: rgb(224, 222, 213); border-radius: 25px ">
-        <div *ngFor="let c of par.content|codeformat">
+        <div *ngFor="let c of par.content|codeformat" style="word-wrap: break-word">
           <p class="lead pl-4"
-            style=' font-family: "Courier New", Courier, monospace;font-size: 98%; white-space: pre'>
+            style=' font-family: "Courier New", Courier, monospace;font-size: 98%; white-space: pre-wrap'>
             {{c}}
           </p>
         </div>
