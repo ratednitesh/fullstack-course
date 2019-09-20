@@ -13,14 +13,14 @@
     <div *ngIf="getActiveContent()=='Back-end'" class="pull-left image">
       <img src="../../../../assets/backend.png" class="rounded-circle" alt="User Image">
     </div>
-    <div  *ngIf="!searchFocus" class="pull-left info">
+    <div *ngIf="!searchFocus" class="pull-left info">
       <div class="nav-item dropdown">
         <a href="" data-toggle="dropdown" class="nav-link font-weight-bold px-3 text-light dropdown-toggle">
           <span class="  font-weight-bold px-2 text-light ">
             {{title}}<span class="text-info">{{subTitle}}</span>
           </span>
         </a>
-        <div class="dropdown-menu" style="background-color: rgba(17, 17, 17, 0.685)">
+        <div class="dropdown-menu" style="background-color: rgba(17, 17, 17, 0.822)">
           <a *ngIf="!(getActiveContent()== 'Home')" href="#" (click)="setActiveContent('Home')"
             class="dropdown-item text-white">Home</a>
           <a *ngIf="!(getActiveContent()== 'Full-stack')" href="#" (click)="setActiveContent('Full-stack')"
@@ -33,18 +33,25 @@
       </div>
     </div>
   </div>
-  <input (focus)="setFocus()" (focusout)="setFocusOut()" id="search" type="text"
-   class="search form-control m-1" autocomplete="off" placeholder="search">
-  <!-- <button class="navbar-toggler bg-light" data-toggle="collapse" data-target="#nav-content">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
+  <div class=" col">
+    <input (focus)="setFocus()" (focusout)="setFocusOut()" id="search" type="text" class="search form-control "
+      autocomplete="off" placeholder="search">
+  </div>
+  <div *ngIf="getActiveContent()!='Home' && getActiveContent()!='Admin'" class="">
+    <a href="#" (click)="toggleSidebarDisplay()" class="btn text-white" id="menu-toggle">
+      <i *ngIf="collapseSideBar" class="fa fa-2x fa-bars" aria-hidden="true"></i>
+      <i *ngIf="!collapseSideBar" class="fa fa-2x fa-times-thin" aria-hidden="true"></i>
+    </a> 
+  </div>
+
+
 
   <!-- <div class=" justify-content-between" id="nav-content"> -->
-    <!-- <ul class="navbar-nav"> -->
-    <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Home')"
+  <!-- <ul class="navbar-nav"> -->
+  <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Home')"
           class="nav-link text-uppercase font-weight-bold px-3 text-light ">Home</a>
       </li> -->
-    <!-- <li class="nav-item dropdown"><a href="" data-toggle="dropdown"
+  <!-- <li class="nav-item dropdown"><a href="" data-toggle="dropdown"
           class="nav-link text-uppercase font-weight-bold px-3 text-light dropdown-toggle">Core Java</a>
         <div class="dropdown-menu bg-secondary  ">
           <a href="./java_pages/java_iw.htm" class="dropdown-item text-light">JVM Internal Working</a>
@@ -53,15 +60,15 @@
           <a href="" class="dropdown-item text-light">Project 4</a>
         </div>
       </li> -->
-    <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Full-stack')"
+  <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Full-stack')"
           class="nav-link text-uppercase font-weight-bold px-3 text-light">Content</a>
       </li> -->
 
-    <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Admin')"
+  <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Admin')"
           class="nav-link text-uppercase font-weight-bold px-3 text-warning">Add Article</a>
       </li> -->
-    <!-- <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold px-3 text-light">About Me</a>
+  <!-- <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold px-3 text-light">About Me</a>
       </li> -->
-    <!-- </ul> -->
+  <!-- </ul> -->
   <!-- </div> -->
 </nav>

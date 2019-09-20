@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivebodyService } from '../activebody.service';
 import { SelecttopicService } from '../body/content/selecttopic.service';
+import { Subscription } from 'rxjs';
+import { SideDisplayService } from '../side-display.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,6 +14,8 @@ export class NavComponent implements OnInit {
   title: String;
   subTitle: String;
   searchFocus: boolean = false;
+  subscription: Subscription;
+  collapseSideBar=true;
 
   updateTitle() {
     switch (this.activeContent) {
@@ -44,10 +48,16 @@ export class NavComponent implements OnInit {
     }
   }
   constructor(private selecttopicService: SelecttopicService,
-    private activebodyService: ActivebodyService) { }
+    private activebodyService: ActivebodyService,private sideDisplayService: SideDisplayService) { }
 
   ngOnInit() {
     this.updateTitle();
+    this.subscription = this.activebodyService.getActiveBody().subscribe(activeContent => {
+      this.activeContent = activeContent;
+      this.collapseSideBar=false;
+      this.sideDisplayService.setsSidebarDisplay(this.collapseSideBar);
+      this.updateTitle();
+    });
   }
 
   setActiveContent(activeContent: String) {
@@ -55,6 +65,8 @@ export class NavComponent implements OnInit {
     this.updateTitle();
     this.selecttopicService.setActiveTopic('start');
     this.activebodyService.setActiveBody(activeContent);
+    this.collapseSideBar=false;
+    this.sideDisplayService.setsSidebarDisplay(this.collapseSideBar);
 
   }
 
@@ -71,5 +83,10 @@ export class NavComponent implements OnInit {
       this.searchFocus = false;
     }, 500);
 
+  }
+
+  toggleSidebarDisplay(){
+    this.collapseSideBar=!this.collapseSideBar;
+    this.sideDisplayService.setsSidebarDisplay(this.collapseSideBar);
   }
 }

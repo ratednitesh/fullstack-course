@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2  pt-5 mt-3" style="background-color: #000">
+  <div class="row justify-content-center">
+    <div  [ngClass]="isSidebarDisplayed()" class="col-md-2  pt-5 mt-3 " style="background-color: #000">
       <app-sidebar [activeContent]="activeContent"></app-sidebar>
     </div>
     <div class="col-md-10">

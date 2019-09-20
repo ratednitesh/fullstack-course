@@ -25,10 +25,6 @@ export class DocComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   topicHeading: String = "";
   mainContentArray: Array<MainContent>;
-  //  = [,{
-  //   subHeading: 'Java Virtual Machine',
-  //   paragraph: []
-  // }];
 
   constructor(private docService: DocService, private selecttopicService: SelecttopicService) { }
 
