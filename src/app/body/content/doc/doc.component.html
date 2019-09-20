@@ -1,12 +1,12 @@
-<div class="pb-5 mt-5 pt-5" style="min-height:100vh">
+<div id="container" class="pb-5 mt-5 pt-5" style="min-height:100vh">
   <div class="px-5" *ngFor="let mainContent of mainContentArray">
     <h1 class="display-4 text-center">{{mainContent.topic}}</h1>
     <h3 class="display-4" style="font-size:40px">{{mainContent.subHeading}}</h3>
     <div *ngFor="let par of mainContent.paragraph">
-      <div *ngIf="par.type=='para'">
+      <div *ngIf="par.type=='para'" style="text-align: justify">
         <p class="lead">{{par.content}}</p>
       </div>
-      <div *ngIf="par.type=='bold-para'">
+      <div *ngIf="par.type=='bold-para'" style="text-align: justify">
         <p class="lead pt-1"><strong>{{par.content}}</strong></p>
       </div>
       <div *ngIf="par.type=='bullet'">

@@ -1,7 +1,7 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: black">
-  <div id="heading" class="navbar-brand stack">
-    <div *ngIf="getActiveContent()=='Home' || getActiveContent()=='Admin'" class="pull-left image">
+  <div id="heading" class="navbar-brand stack" style="padding:0 !important;">
+    <div *ngIf="getActiveContent()=='Home' || getActiveContent()=='Admin'" class="pull-left image" style="padding:0 !important;margin: 0 !important">
       <i class="fa fa-code text-danger fa-2x"></i>
     </div>
     <div *ngIf="getActiveContent()=='Front-end'" class="pull-left image">
@@ -15,7 +15,7 @@
     </div>
     <div *ngIf="!searchFocus" class="pull-left info">
       <div class="nav-item dropdown">
-        <a href="" data-toggle="dropdown" class="nav-link font-weight-bold px-3 text-light dropdown-toggle">
+        <a href="" data-toggle="dropdown" class="nav-link font-weight-bold text-light dropdown-toggle">
           <span class="  font-weight-bold px-2 text-light ">
             {{title}}<span class="text-info">{{subTitle}}</span>
           </span>
@@ -33,42 +33,14 @@
       </div>
     </div>
   </div>
-  <div class=" col">
+  <div class="col" style="padding:0 !important;">
     <input (focus)="setFocus()" (focusout)="setFocusOut()" id="search" type="text" class="search form-control "
       autocomplete="off" placeholder="search">
   </div>
-  <div *ngIf="getActiveContent()!='Home' && getActiveContent()!='Admin'" class="">
+  <div id="sidebar-button" *ngIf="getActiveContent()!='Home' && getActiveContent()!='Admin'" class="">
     <a href="#" (click)="toggleSidebarDisplay()" class="btn text-white" id="menu-toggle">
       <i *ngIf="collapseSideBar" class="fa fa-2x fa-bars" aria-hidden="true"></i>
       <i *ngIf="!collapseSideBar" class="fa fa-2x fa-times-thin" aria-hidden="true"></i>
     </a> 
   </div>
-
-
-
-  <!-- <div class=" justify-content-between" id="nav-content"> -->
-  <!-- <ul class="navbar-nav"> -->
-  <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Home')"
-          class="nav-link text-uppercase font-weight-bold px-3 text-light ">Home</a>
-      </li> -->
-  <!-- <li class="nav-item dropdown"><a href="" data-toggle="dropdown"
-          class="nav-link text-uppercase font-weight-bold px-3 text-light dropdown-toggle">Core Java</a>
-        <div class="dropdown-menu bg-secondary  ">
-          <a href="./java_pages/java_iw.htm" class="dropdown-item text-light">JVM Internal Working</a>
-          <a href="" class="dropdown-item text-light">Project 2</a>
-          <a href="" class="dropdown-item text-light">Project 3</a>
-          <a href="" class="dropdown-item text-light">Project 4</a>
-        </div>
-      </li> -->
-  <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Full-stack')"
-          class="nav-link text-uppercase font-weight-bold px-3 text-light">Content</a>
-      </li> -->
-
-  <!-- <li class="nav-item"><a href="#" (click)="setActiveContent('Admin')"
-          class="nav-link text-uppercase font-weight-bold px-3 text-warning">Add Article</a>
-      </li> -->
-  <!-- <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold px-3 text-light">About Me</a>
-      </li> -->
-  <!-- </ul> -->
-  <!-- </div> -->
 </nav>
