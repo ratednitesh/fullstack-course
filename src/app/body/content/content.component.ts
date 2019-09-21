@@ -17,7 +17,6 @@ export class ContentComponent implements OnInit {
   ngOnInit() {
     this.subscription = this.sideDisplayService.getsSidebarDisplay().subscribe(sidebarDisplay => {
       this.sidebarDisplay = sidebarDisplay;
-      console.log(this.sidebarDisplay);
     });
   }
 

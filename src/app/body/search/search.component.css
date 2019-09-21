@@ -1,0 +1,19 @@
+ a,
+ a:visited {
+   color: rgb(110, 160, 253) !important;
+   text-decoration: none !important
+ }
+
+ a:hover {
+   color: rgb(146, 255, 240) !important;
+ }
+
+ a:active {
+   color: rgb(24, 78, 10) !important;
+ }
+
+ .about-search {
+   letter-spacing: 5px;
+   font-size: 140%;
+   color: rgb(255, 253, 109)
+ }

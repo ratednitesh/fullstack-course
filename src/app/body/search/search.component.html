@@ -1,0 +1,64 @@
+<div class="container text-white px-5 "
+  style="min-height: 100vh; margin-top: 100px;background-color: rgb(67, 85, 92);border-radius: 25px">
+  <div id="count" class="m-4 p-2 font-weight-light text-warning" style="font-size: 30px">
+    <div *ngIf="resultSize()!=0">
+      {{searchResult}} results found!
+    </div>
+    <div *ngIf="resultSize()==0" class="text-danger">
+      No Result Found!
+    </div>
+  </div>
+
+  <div *ngIf="outputMenuArray.length>0" class="text-dark mb-3">
+    <p class="text-uppercase about-search">Categories Found:</p>
+    <div *ngFor="let menu of outputMenuArray" class="" style="font-size: 20px">
+      <a *ngIf="menu.isList==false" href="#" (click)="activateTopic(menu.topicLink)" class="topic"><i
+          class="fa fa-diamond"></i>
+        <span class="nav-label"  style="font-size: 20px">{{menu.displayValue}}</span></a>
+
+      <a *ngIf="menu.isList==true" href="#" data-toggle="collapse" [attr.data-target]="'#'+menu.id"
+        class="collapsed active">
+        <i class="fa fa-th-large"></i> <span class="nav-label">{{menu.displayValue}}</span> <span
+          class="px-2 fa fa-chevron-left"></span>
+      </a>
+      <ul *ngIf="menu.isList==true" data-toggle="collapse" [attr.data-target]="'#'+menu.id" class="sub-menu collapse"
+        id="{{menu.id}}">
+        <li *ngFor="let list of menu.subList">
+          <a href="#" (click)="activateTopic(list.topicLink)">{{list.displayValue}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="outputListArray.length>0" class="mb-3">
+    <p class="text-uppercase about-search">Topics Found:</p>
+    <div *ngFor="let list of outputListArray"  style="font-size: 20px">
+      <a href="#" (click)="activateTopic(list.topicLink)">{{list.displayValue}}</a>
+    </div>
+  </div>
+  <div *ngIf="outputContentListArray.length>0" class="mb-3">
+      <p class="text-uppercase about-search">Content Found:</p>
+    <div *ngFor="let content of outputContentListArray"  style="font-size: 20px">
+      <a href="#" (click)="activateTopic(content.topicLink)">{{content.displayValue}}</a>
+      <div *ngFor="let par of content.paragraph">
+        <div *ngIf="par.type=='para'" style="text-align: justify">
+          <strong>{{par.displayValue}}</strong>
+          <p class="lead">{{par.content}}....</p>
+        </div>
+        <div *ngIf="par.type=='bold-para'" style="text-align: justify">
+          <strong>{{par.displayValue}}</strong>
+          <p class="lead pt-1"><strong>{{par.content}}....</strong></p>
+        </div>
+        <div *ngIf="par.type=='bullet'">
+          <strong>{{par.displayValue}}</strong>
+          <li class="px-3 lead"><strong>{{par.content}}....</strong></li>
+        </div>
+        <div *ngIf="par.type=='bold-para-head'">
+          <strong>{{par.displayValue}}</strong>
+          <p class="lead mt-4"><strong style="font-weight:500;font-size: 115%">{{par.content}}....</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

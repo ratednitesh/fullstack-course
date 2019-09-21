@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class SelecttopicService {
   private subject = new Subject<String>();
+  private activeTopic:String='start';
   constructor() { 
   }
 
@@ -15,5 +16,13 @@ export class SelecttopicService {
 
   getActiveTopic(){
     return this.subject.asObservable();
+  }
+
+  getStaticActiveTopic(){
+    return this.activeTopic;
+  }
+
+  setStaticActiveTopic(activeTopic:String){
+     this.activeTopic=activeTopic;
   }
 }

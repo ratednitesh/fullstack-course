@@ -13,6 +13,7 @@ import { SidebarComponent } from './body/content/sidebar/sidebar.component';
 import { DocComponent } from './body/content/doc/doc.component';
 import { CodeFormat } from './body/content/doc/codeformat.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './body/search/search.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContentComponent,
     SidebarComponent,
     DocComponent,
-    CodeFormat
+    CodeFormat,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

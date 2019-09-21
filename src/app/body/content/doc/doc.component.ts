@@ -2,18 +2,9 @@ import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { DocService } from './doc.service';
 import { Subscription } from 'rxjs';
 import { SelecttopicService } from '../selecttopic.service';
+import { MainContent } from 'src/app/content.service';
 
-class ContentType {
-  type: String;
-  content: String;
-}
 
-class MainContent {
-  topic: String;
-  subHeading: String;
-  paragraph: Array<ContentType>;
-
-}
 
 @Component({
   selector: 'app-doc',
@@ -21,12 +12,12 @@ class MainContent {
   styleUrls: ['./doc.component.css']
 })
 export class DocComponent implements OnInit, OnDestroy {
-  activeTopic: String = 'start';
+  activeTopic: String = '';
   subscription: Subscription;
   topicHeading: String = "";
   mainContentArray: Array<MainContent>;
 
-  constructor(private docService: DocService, private selecttopicService: SelecttopicService) { }
+  constructor(private docService: DocService, private selecttopicService: SelecttopicService) {}
 
   initializeMainContentArray() { }
 
@@ -37,6 +28,7 @@ export class DocComponent implements OnInit, OnDestroy {
         this.mainContentArray = data;
       });
     });
+    this.activeTopic=this.selecttopicService.getStaticActiveTopic();
     this.docService.getJSON(this.activeTopic + '.json').subscribe(data => {
       this.mainContentArray = data;
     });

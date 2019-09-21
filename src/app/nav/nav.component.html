@@ -1,7 +1,7 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: black">
   <div id="heading" class="navbar-brand stack" style="padding:0 !important;">
-    <div *ngIf="getActiveContent()=='Home' || getActiveContent()=='Admin'" class="pull-left image" style="padding:0 !important;margin: 0 !important">
+    <div *ngIf="getActiveContent()=='Home' || getActiveContent()=='Admin' ||getActiveContent()=='Searching'" class="pull-left image" style="padding:0 !important;margin: 0 !important">
       <i class="fa fa-code text-danger fa-2x"></i>
     </div>
     <div *ngIf="getActiveContent()=='Front-end'" class="pull-left image">
@@ -34,10 +34,10 @@
     </div>
   </div>
   <div class="col" style="padding:0 !important;">
-    <input (focus)="setFocus()" (focusout)="setFocusOut()" id="search" type="text" class="search form-control "
-      autocomplete="off" placeholder="search">
+    <input (focus)="setFocus()" (focusout)="setFocusOut()" id="search" type="text" class="search form-control " (keyup)="searchingText()"
+      autocomplete="off" placeholder="search" [(ngModel)]="searchText">
   </div>
-  <div id="sidebar-button" *ngIf="getActiveContent()!='Home' && getActiveContent()!='Admin'" class="">
+  <div id="sidebar-button" *ngIf="getActiveContent()!='Home' && getActiveContent()!='Admin' && getActiveContent()!='Searching'" class="">
     <a href="#" (click)="toggleSidebarDisplay()" class="btn text-white" id="menu-toggle">
       <i *ngIf="collapseSideBar" class="fa fa-2x fa-bars" aria-hidden="true"></i>
       <i *ngIf="!collapseSideBar" class="fa fa-2x fa-times-thin" aria-hidden="true"></i>
