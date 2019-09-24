@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { DocService } from './doc.service';
 import { Subscription } from 'rxjs';
 import { SelecttopicService } from '../selecttopic.service';
-import { MainContent } from 'src/app/content.service';
+import { MainContent } from 'src/app/services/content.service';
 
 
 

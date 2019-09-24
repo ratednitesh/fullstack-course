@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchingService } from 'src/app/searching.service';
+import { SearchingService } from 'src/app/services/searching.service';
 import { Subscription } from 'rxjs';
-import { Menu, ContentService, List, MainContent, ContentList, ContentType } from 'src/app/content.service';
+import { Menu, ContentService, List, MainContent, ContentList, ContentType } from 'src/app/services/content.service';
 import { SelecttopicService } from '../content/selecttopic.service';
-import { ActivebodyService } from 'src/app/activebody.service';
+import { ActivebodyService } from 'src/app/services/activebody.service';
 import { DocService } from '../content/doc/doc.service';
 import { debounceTime, count } from 'rxjs/operators';
 

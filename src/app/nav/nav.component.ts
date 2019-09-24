@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivebodyService } from '../activebody.service';
+import { ActivebodyService } from '../services/activebody.service';
 import { SelecttopicService } from '../body/content/selecttopic.service';
 import { Subscription } from 'rxjs';
-import { SideDisplayService } from '../side-display.service';
-import { SearchingService } from '../searching.service';
+import { SideDisplayService } from '../services/side-display.service';
+import { SearchingService } from '../services/searching.service';
 
 @Component({
   selector: 'app-nav',

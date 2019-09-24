@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SideDisplayService } from 'src/app/side-display.service';
+import { SideDisplayService } from 'src/app/services/side-display.service';
 
 @Component({
   selector: 'app-content',

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SelecttopicService } from '../selecttopic.service';
-import { ActivebodyService } from 'src/app/activebody.service';
-import { Menu, ContentService } from 'src/app/content.service';
+import { ActivebodyService } from 'src/app/services/activebody.service';
+import { Menu, ContentService } from 'src/app/services/content.service';
 
 
 @Component({

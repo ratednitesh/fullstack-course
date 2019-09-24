@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelecttopicService } from '../body/content/selecttopic.service';
-import { ActivebodyService } from '../activebody.service';
+import { ActivebodyService } from '../services/activebody.service';
 
 @Component({
   selector: 'app-footer',

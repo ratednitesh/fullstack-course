@@ -1,12 +1,14 @@
-<div *ngIf="getActiveBody()=='Home'" class="" >
+<div class="">
+  <div *ngIf="getActiveBody()=='Home'" class="">
     <app-banner></app-banner>
-</div>
-<div *ngIf="getActiveBody()=='Full-stack' || getActiveBody()=='Back-end' || getActiveBody()=='Front-end'" class="">
+  </div>
+  <div *ngIf="getActiveBody()=='Full-stack' || getActiveBody()=='Back-end' || getActiveBody()=='Front-end'" class="">
     <app-content [activeContent]="getActiveBody()"></app-content>
-</div>
-<div *ngIf="getActiveBody()=='Admin'" class="">
+  </div>
+  <div *ngIf="getActiveBody()=='Admin'" class="">
     <app-admin></app-admin>
-</div>
-<div *ngIf="getActiveBody()=='Searching'" class="">
-      <app-search></app-search>
+  </div>
+  <div *ngIf="getActiveBody()=='Searching'" class="container ">
+    <app-search></app-search>
+  </div>
 </div>

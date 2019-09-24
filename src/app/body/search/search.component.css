@@ -1,11 +1,11 @@
  a,
  a:visited {
-   color: rgb(110, 160, 253) !important;
+   color: rgb(72, 127, 230) !important;
    text-decoration: none !important
  }
 
  a:hover {
-   color: rgb(146, 255, 240) !important;
+   color: rgb(65, 13, 13) !important;
  }
 
  a:active {
@@ -15,5 +15,5 @@
  .about-search {
    letter-spacing: 5px;
    font-size: 140%;
-   color: rgb(255, 253, 109)
+   color: rgb(32, 66, 22)
  }

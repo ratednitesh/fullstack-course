@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivebodyService } from '../activebody.service';
+import { ActivebodyService } from '../services/activebody.service';
 import { Subscription } from 'rxjs';
 
 @Component({

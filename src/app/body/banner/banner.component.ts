@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivebodyService } from 'src/app/activebody.service';
+import { ActivebodyService } from 'src/app/services/activebody.service';
 
 @Component({
   selector: 'app-banner',
