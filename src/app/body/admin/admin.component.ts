@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
   { id: 'para', type: 'text', displayName: 'Paragraph', addFlag: true }
   ];
 
-  @ViewChild('newForm', { static: false }) signUpForm: NgForm;
+  @ViewChild('newForm') signUpForm: NgForm;
 
   onSubmit() {
     let object = this.signUpForm.value;
